@@ -1,24 +1,25 @@
-# miniRV-1_Design
+# [miniRV-1_Design] RISC-V架构CPU设计
 
-#### 介绍
-计算机设计与实践实验课，RISC-V子集miniRV-1的CPU设计
-单周期CPU设计、流水线CPU设计
-
-#### 软件架构
-软件架构说明
+### 项目简介
+> 计算机设计与实践实验课，RISC-V子集miniRV-1的CPU设计
+> 单周期CPU设计、流水线CPU设计
 
 
-#### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
-#### 使用说明
+### 环境搭建
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+* 
 
-#### 项目文件说明
+
+
+### 项目文件说明
+
+* 
+
+
+
+### 使用说明
+
+* 
 
