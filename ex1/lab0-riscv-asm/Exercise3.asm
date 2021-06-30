@@ -27,6 +27,11 @@ mode1:
 	sw	zero,0x062(s0)	# 让所有灯全灭
 	add 	a2,zero,zero	# a2 为阶段码，共四个阶段
 loop_m1_1:
+	# 延迟1
+	addi	t0,zero,0x00F	# 设置延时时间
+loop_dl_1:
+	sub	t0,t0,t1	# 自减 1
+	bne	t0,zero,loop_dl_1
 	# 检查有没有切换模式
 	lw	s1,0x072(s0)
 	andi	a0,s1,0x0C0	# 当前模式码
@@ -96,6 +101,11 @@ mode2:
 	sw 	zero,0x060(s0)
 	add 	a2,zero,zero	# 阶段码，共四个阶段
 loop_m2_1:
+	# 延迟2
+	addi	t0,zero,0x00F	# 设置延时时间
+loop_dl_2:
+	sub	t0,t0,t1	# 自减 1
+	bne	t0,zero,loop_dl_2
 	# 检查是否切换模式
 	lw	s1,0x072(s0)
 	andi	a0,s1,0x0C0
@@ -190,6 +200,11 @@ mark_m3_3:
 	add 	s6,s6,s4
 	# 初始化完毕（好长 TwT ）
 loop_m3_1:
+	# 延迟3
+	addi	t0,zero,0x00F	# 设置延时时间
+loop_dl_3:
+	sub	t0,t0,t1	# 自减 1
+	bne	t0,zero,loop_dl_3
 	# 检查是否切换模式
 	lw	s1,0x072(s0)
 	andi	a0,s1,0x0C0
@@ -228,18 +243,17 @@ loop_m3_001:			# 阶段001
 	beq 	a3,t1,loop_m3_1
 	addi 	a2,zero,0x000
 	jal 	loop_m3_1
-loop_sr_1:
-	jal	switread
+# loop_sr_1:			# 好像没什么用
+# 	jal	switread
 	
 	
 
 
-
-delay1:
-	addi	t0,zero,0x7FF	# 设置延时时间
-loop_dl_1:
-	sub	t0,t0,t1	# 自减 1
-	bne	t0,zero,loop_dl_1
+# delay1:
+# 	addi	t0,zero,0x7FF	# 设置延时时间
+# loop_dl_1:
+# 	sub	t0,t0,t1	# 自减 1
+# 	bne	t0,zero,loop_dl_1
 
 
 
