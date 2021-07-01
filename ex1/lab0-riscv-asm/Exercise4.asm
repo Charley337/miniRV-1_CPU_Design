@@ -121,7 +121,7 @@ movement_111:
 	and 	a1,s5,t3
 	bne 	a1,t3,mark_m111_1
 	# 如果是负数
-	andi 	a2,s5,t2	# a2 是提取出来的前 15 位
+	and 	a2,s5,t2	# a2 是提取出来的前 15 位
 	sra 	s5,a2,t1
 	add 	s5,s5,t3
 	jal 	mark_m111_2
