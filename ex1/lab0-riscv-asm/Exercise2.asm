@@ -4,6 +4,13 @@
 switread:
 	lw	a0,0x70(s1)	# 低16位拨码
 	lw	a1,0x72(s1)	# 高8位拨码，读取SW22和SW23的值，判断计算类型
+	# 判断复位 SW[21] 是否有效，有效则一直显示零
+	andi 	t5,a1,0x020
+	addi 	t6,zero,0x020
+	bne 	t5,t6,mark_sw21
+	sw 	zero,0x060(s1)	# 复位则全熄灭
+	jal 	switread
+mark_sw21:
 	addi	a2,zero,0x080	# 构造用来比较的数值
 	addi	a3,zero,0x040
 	addi	a4,zero,0x0C0
