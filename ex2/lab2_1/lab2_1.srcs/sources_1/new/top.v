@@ -25,7 +25,7 @@ module top(
     input   rst_n_i
     );
     wire clk_cpu;
-    cpuclk U_cpuclk(
+    cpuclk U_cpuclk_0(
         .clk_in1    (clk_i),
         .clk_out1   (clk_cpu)
     );

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2021/07/01 16:24:59
+// Create Date: 2021/07/02 15:30:18
 // Design Name: 
-// Module Name: irom
+// Module Name: alu_sub
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,12 +20,17 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module irom(
-    input       [31:0]  adr_i,
-    output  reg [31:0]  inst_o
+module alu_sub(
+    input       [31:0]  a_i,
+    input       [31:0]  b_i,
+    output      [31:0]  c_o
     );
-    prgrom U_irom_0(              // ROM 13 位地址，32 位宽
-        .a      (adr_i[15:2]),
-        .spo    (inst_o)
+    wire [31:0] b_n;
+    // 例化一个取负逻辑
+    alu_neg_num U_alu_neg_num_0 (
+        .imm_i      (b_i),
+        .n_imm_o    (b_n)
     );
+    // 减法就是加上负数的补码
+    assign c_o = a_i + b_n;
 endmodule

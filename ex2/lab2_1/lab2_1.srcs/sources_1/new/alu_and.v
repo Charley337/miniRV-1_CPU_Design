@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2021/07/01 16:24:59
+// Create Date: 2021/07/02 17:40:34
 // Design Name: 
-// Module Name: irom
+// Module Name: alu_and
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,12 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module irom(
-    input       [31:0]  adr_i,
-    output  reg [31:0]  inst_o
-    );
-    prgrom U_irom_0(              // ROM 13 Î»µØÖ·£¬32 Î»¿í
-        .a      (adr_i[15:2]),
-        .spo    (inst_o)
+module alu_and(
+
     );
 endmodule
