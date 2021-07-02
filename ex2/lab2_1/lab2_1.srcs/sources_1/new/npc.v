@@ -21,30 +21,17 @@
 
 
 module npc(
-    input   clk_i,
-    input               rst_n_i,
     input       [31:0]  pc_i,
     input       [31:0]  imm_i,
     input       [1:0]   npc_op,
-    output  reg [31:0]  npc_o,
-    output  reg [31:0]  pc4_o
+    output      [31:0]  npc_o,
+    output      [31:0]  pc4_o
     );
-    always @ (posedge clk_i or negedge rst_n_i) begin
-        if (~rst_n_i) begin     // 复位
-            pc4_o <= 32'h0000_0004;
-            npc_o <= 32'h0000_0004;
-        end
-        else begin
-            case(npc_op)        // 根据控制信号 npc_op 来选择模式
-            2'b01   :   begin
-                pc4_o <= pc_i + 32'h4;
-                npc_o <= pc_i + imm_i;
-            end
-            default :   begin
-                pc4_o <= pc_i + 32'h4;
-                npc_o <= pc_i + 32'h4;
-            end
-            endcase
-        end
-    end
+    // define parameter
+    localparam  PC_ADD_4    = 2'b00;
+    localparam  PC_ADD_IMM  = 2'b01;
+    localparam  PC_IMM_JALR = 2'b10; 
+    // 都用组合逻辑
+    assign pc4_o = pc_i + 32'h4;
+    assign npc_o = (npc_op == PC_IMM_JALR) ? ((pc_i + imm_i) & 32'hFFFF_FFFE) : (npc_op == PC_ADD_IMM) ? (pc_i + imm_i) : (pc_i + 32'h4);
 endmodule
