@@ -25,12 +25,6 @@ module sext_neg(
     input       [2:0]   sext_op,
     output  reg [31:0]  ext_o
     );
-    // define local parameter
-    localparam  I_INST  = 3'b000;
-    localparam  S_INST  = 3'b001;
-    localparam  B_INST  = 3'b010;
-    localparam  U_INST  = 3'b011;
-    localparam  J_INST  = 3'b100;
     // ×éºÏÂß¼­
     always @ (*) begin
         case(sext_op)
