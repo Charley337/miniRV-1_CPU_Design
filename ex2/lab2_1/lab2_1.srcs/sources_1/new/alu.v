@@ -25,7 +25,7 @@ module alu(
     input       [31:0]  b_i,
     input       [3:0]   alu_op,
     input               branch,
-    output  reg [31:0]  c_o
+    output      [31:0]  c_o
     );
     // 中间变量
     wire [31:0] c_add;
@@ -76,6 +76,6 @@ module alu(
         .b_i    (b_i),
         .c_o    (c_sra)
     );
+    // 根据alu_op决定何种运算
+    assign c_o = (alu_op == ALU_ADD) ? alu_add : (alu_op == ALU_SUB) ? alu_sub : (alu_op == ALU_AND) ? alu_and : (alu_op == ALU_OR) ? alu_or : (alu_op == ALU_XOR) ? alu_xor : (alu_op == ALU_SLL) ? alu_sll : (alu_op == SRL) ? alu_srl : (alu_op == ALU_SRA) ? alu_sra : 32'h0;
 endmodule
-
-
