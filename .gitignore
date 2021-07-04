@@ -1,7 +1,2 @@
-# 蹇界暐鎺夊伐绋嬫枃浠朵腑鐨勯潪蹇呰閮ㄥ垎
-ex2/lab2_1/lab2_1.cache/
-ex2/lab2_1/lab2_1.hw/
-ex2/lab2_1/lab2_1.ip_user_files/
-ex2/lab2_1/lab2_1.runs/
-ex2/lab2_1/lab2_1.sim/
-ex2/lab2_1/lab2_1.xpr
+# 忽略掉工程文件中的非必要部分
+
