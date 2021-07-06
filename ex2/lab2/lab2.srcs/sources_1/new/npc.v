@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`include "param.vh"
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -29,5 +30,7 @@ module npc(
     );
     // 都用组合逻辑
     assign pc4_o = pc_i + 32'h4;
-    assign npc_o = (npc_op == `PC_IMM_JALR) ? ((pc_i + imm_i) & 32'hFFFF_FFFE) : (npc_op == `PC_ADD_IMM) ? (pc_i + imm_i) : (pc_i + 32'h4);
+    assign npc_o =      (npc_op == `PC_IMM_JALR) ? ((pc_i + imm_i) & 32'hFFFF_FFFE) : 
+                        (npc_op == `PC_ADD_IMM) ? (pc_i + imm_i) : 
+                        (pc_i + 32'h4);
 endmodule

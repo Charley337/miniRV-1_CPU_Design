@@ -1,0 +1,11 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+C:/Users/Administrator/Desktop/tjx_riscv_2021_07_06/mini-rv-1_-design/ex2/lab2/lab2.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
+C:/Users/Administrator/Desktop/tjx_riscv_2021_07_06/mini-rv-1_-design/ex2/lab2/lab2.srcs/sim_1/new/alu_sll_sim.v,1625532489,verilog,,,,alu_sll_sim,,,../../../../lab2.srcs/sources_1/ip/cpuclk;../../../../lab2.srcs/sources_1/new,,,,,
+C:/Users/Administrator/Desktop/tjx_riscv_2021_07_06/mini-rv-1_-design/ex2/lab2/lab2.srcs/sim_1/new/module_testbench_tb.v,1625539428,verilog,,,,module_testbench_tb,,,../../../../lab2.srcs/sources_1/ip/cpuclk;../../../../lab2.srcs/sources_1/new,,,,,
+C:/Users/Administrator/Desktop/tjx_riscv_2021_07_06/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/new/alu_sll.v,1625532489,verilog,,C:/Users/Administrator/Desktop/tjx_riscv_2021_07_06/mini-rv-1_-design/ex2/lab2/lab2.srcs/sim_1/new/alu_sll_sim.v,,alu_sll,,,../../../../lab2.srcs/sources_1/ip/cpuclk;../../../../lab2.srcs/sources_1/new,,,,,
+C:/Users/Administrator/Desktop/tjx_riscv_2021_07_06/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/new/npc.v,1625538676,verilog,,C:/Users/Administrator/Desktop/tjx_riscv_2021_07_06/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/new/pc.v,C:/Users/Administrator/Desktop/tjx_riscv_2021_07_06/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/new/param.vh,npc,,,../../../../lab2.srcs/sources_1/ip/cpuclk;../../../../lab2.srcs/sources_1/new,,,,,
+C:/Users/Administrator/Desktop/tjx_riscv_2021_07_06/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/new/param.vh,1625532489,verilog,,C:/Users/Administrator/Desktop/tjx_riscv_2021_07_06/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/new/npc.v,,,,,../../../../lab2.srcs/sources_1/ip/cpuclk;../../../../lab2.srcs/sources_1/new,,,,,
+C:/Users/Administrator/Desktop/tjx_riscv_2021_07_06/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/new/pc.v,1625532489,verilog,,C:/Users/Administrator/Desktop/tjx_riscv_2021_07_06/mini-rv-1_-design/ex2/lab2/lab2.srcs/sim_1/new/module_testbench_tb.v,,pc,,,../../../../lab2.srcs/sources_1/ip/cpuclk;../../../../lab2.srcs/sources_1/new,,,,,
