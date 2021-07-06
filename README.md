@@ -1,4 +1,4 @@
-# [miniRV-1_Design] RISC-V架构CPU设计
+﻿# [miniRV-1_Design] RISC-V架构CPU设计
 
 ## 项目简介
 > 计算机设计与实践实验课，RISC-V子集miniRV-1的CPU设计
@@ -6,6 +6,7 @@
 > 单周期CPU设计、流水线CPU设计
 >
 > [实验指导书网页](https://hitsz-cslab.gitee.io/organ/)
+> [trace 测试网页](https://github.com/HITSZ-CDP-SU2021/cdp-tests)
 
 ![](image/image_1.jpg)
 
