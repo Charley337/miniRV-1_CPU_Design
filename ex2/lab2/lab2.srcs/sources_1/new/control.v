@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`include "param.vh"
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -60,14 +61,21 @@ module control(
                                             1'b1;
     // sext_op
     wire sext_op_000;
-    assign sext_op_000  =   (opcode == `OPCODE_INST_I) || 
+    wire sext_op_101;
+    assign sext_op_000  =   ({funct3, opcode} == {`FUNCT3_ADDI, `OPCODE_INST_I}) || 
+                            ({funct3, opcode} == {`FUNCT3_ANDI, `OPCODE_INST_I}) || 
+                            ({funct3, opcode} == {`FUNCT3_ORI, `OPCODE_INST_I}) || 
+                            ({funct3, opcode} == {`FUNCT3_XORI, `OPCODE_INST_I}) || 
                             (opcode == `OPCODE_LW) || 
                             (opcode == `OPCODE_JALR);
+    assign sext_op_101  =   ({funct3, opcode} == {`FUNCT3_SLLI, `OPCODE_INST_I}) || 
+                            ({funct3, opcode} == {`FUNCT3_SRLI_A, `OPCODE_INST_I});
     assign sext_op      =   (sext_op_000)               ?   3'b000 : 
                             (opcode == `OPCODE_INST_S)  ?   3'b001 : 
                             (opcode == `OPCODE_INST_B)  ?   3'b010 : 
                             (opcode == `OPCODE_LUI)     ?   3'b011 : 
                             (opcode == `OPCODE_JAL)     ?   3'b100 : 
+                            (sext_op_101)               ?   3'b101 : 
                                                             3'b000;
     // wd_sel
     wire wd_sel_10;

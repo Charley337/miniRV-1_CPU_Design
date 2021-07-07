@@ -27,7 +27,9 @@ module top(
     );
     // 连接信号
     // CPU 时钟
+//    wire clk_cpu;
     wire clk_cpu;
+    assign clk_cpu = clk_i;
     // PC
     // 输入
     wire [31:0] pc_din;
@@ -100,10 +102,10 @@ module top(
     wire ctrl_branch;
     
     // 时钟部件
-    cpuclk U_cpuclk_0(
-        .clk_in1    (clk_i),
-        .clk_out1   (clk_cpu)
-    );
+//    cpuclk U_cpuclk_0(
+//        .clk_in1    (clk_i),
+//        .clk_out1   (clk_cpu)
+//    );
     // pc部件
     pc U_pc_0(
         .clk_i      (clk_cpu),

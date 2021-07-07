@@ -1,0 +1,17 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib "C:/Users/Administrator/Desktop/tjx_riscv_2021_07_07/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/new/param.vh" --include "../../../../lab2.srcs/sources_1/new" --include "../../../../lab2.srcs/sources_1/ip/cpuclk" \
+"../../../../lab2.srcs/sources_1/new/alu.v" \
+"../../../../lab2.srcs/sources_1/new/alu_add.v" \
+"../../../../lab2.srcs/sources_1/new/alu_and.v" \
+"../../../../lab2.srcs/sources_1/new/alu_neg_num.v" \
+"../../../../lab2.srcs/sources_1/new/alu_sll.v" \
+"../../../../lab2.srcs/sources_1/new/alu_sra.v" \
+"../../../../lab2.srcs/sources_1/new/alu_srl.v" \
+"../../../../lab2.srcs/sources_1/new/alu_sub.v" \
+"../../../../lab2.srcs/sim_1/new/alu_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -28,11 +28,12 @@
     `define PC_ADD_IMM      2'b01
     `define PC_IMM_JALR     2'b10
     // file: sext_neg.v & sext_pos.v
-    `define I_INST          3'b000
+    `define I_INST_ELSE     3'b000
     `define S_INST          3'b001
     `define B_INST          3'b010
     `define U_INST          3'b011
     `define J_INST          3'b100
+    `define I_INST_SLLI     3'b101
     // file: control.v
     // opcode: 
     // R:
