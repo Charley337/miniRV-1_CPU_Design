@@ -22,7 +22,6 @@
 
 module memram(
     input               clk_i,
-    input               rst_n_i,
     input       [31:0]  addr_i,
     input               memwr_i,
     input       [31:0]  wr_data_i,

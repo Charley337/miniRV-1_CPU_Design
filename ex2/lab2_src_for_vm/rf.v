@@ -66,78 +66,78 @@ module rf(
     reg [31:0]  x31;
     // 组合逻辑，读寄存器
     always @ (*) begin
-            // 一个 case
-            case(rr1_i)
-            5'd0    :   rd1_o = x0;
-            5'd1    :   rd1_o = x1;
-            5'd2    :   rd1_o = x2;
-            5'd3    :   rd1_o = x3;
-            5'd4    :   rd1_o = x4;
-            5'd5    :   rd1_o = x5;
-            5'd6    :   rd1_o = x6;
-            5'd7    :   rd1_o = x7;
-            5'd8    :   rd1_o = x8;
-            5'd9    :   rd1_o = x9;
-            5'd10   :   rd1_o = x10;
-            5'd11   :   rd1_o = x11;
-            5'd12   :   rd1_o = x12;
-            5'd13   :   rd1_o = x13;
-            5'd14   :   rd1_o = x14;
-            5'd15   :   rd1_o = x15;
-            5'd16   :   rd1_o = x16;
-            5'd17   :   rd1_o = x17;
-            5'd18   :   rd1_o = x18;
-            5'd19   :   rd1_o = x19;
-            5'd20   :   rd1_o = x20;
-            5'd21   :   rd1_o = x21;
-            5'd22   :   rd1_o = x22;
-            5'd23   :   rd1_o = x23;
-            5'd24   :   rd1_o = x24;
-            5'd25   :   rd1_o = x25;
-            5'd26   :   rd1_o = x26;
-            5'd27   :   rd1_o = x27;
-            5'd28   :   rd1_o = x28;
-            5'd29   :   rd1_o = x29;
-            5'd30   :   rd1_o = x30;
-            5'd31   :   rd1_o = x31;
-            default;
-            endcase
-            // 两个 case
-            case(rr2_i)
-            5'd0    :   rd2_o = x0;
-            5'd1    :   rd2_o = x1;
-            5'd2    :   rd2_o = x2;
-            5'd3    :   rd2_o = x3;
-            5'd4    :   rd2_o = x4;
-            5'd5    :   rd2_o = x5;
-            5'd6    :   rd2_o = x6;
-            5'd7    :   rd2_o = x7;
-            5'd8    :   rd2_o = x8;
-            5'd9    :   rd2_o = x9;
-            5'd10   :   rd2_o = x10;
-            5'd11   :   rd2_o = x11;
-            5'd12   :   rd2_o = x12;
-            5'd13   :   rd2_o = x13;
-            5'd14   :   rd2_o = x14;
-            5'd15   :   rd2_o = x15;
-            5'd16   :   rd2_o = x16;
-            5'd17   :   rd2_o = x17;
-            5'd18   :   rd2_o = x18;
-            5'd19   :   rd2_o = x19;
-            5'd20   :   rd2_o = x20;
-            5'd21   :   rd2_o = x21;
-            5'd22   :   rd2_o = x22;
-            5'd23   :   rd2_o = x23;
-            5'd24   :   rd2_o = x24;
-            5'd25   :   rd2_o = x25;
-            5'd26   :   rd2_o = x26;
-            5'd27   :   rd2_o = x27;
-            5'd28   :   rd2_o = x28;
-            5'd29   :   rd2_o = x29;
-            5'd30   :   rd2_o = x30;
-            5'd31   :   rd2_o = x31;
-            default;
-            endcase
+        // 一个 case
+        case(rr1_i)
+        5'd0    :   rd1_o = x0;
+        5'd1    :   rd1_o = x1;
+        5'd2    :   rd1_o = x2;
+        5'd3    :   rd1_o = x3;
+        5'd4    :   rd1_o = x4;
+        5'd5    :   rd1_o = x5;
+        5'd6    :   rd1_o = x6;
+        5'd7    :   rd1_o = x7;
+        5'd8    :   rd1_o = x8;
+        5'd9    :   rd1_o = x9;
+        5'd10   :   rd1_o = x10;
+        5'd11   :   rd1_o = x11;
+        5'd12   :   rd1_o = x12;
+        5'd13   :   rd1_o = x13;
+        5'd14   :   rd1_o = x14;
+        5'd15   :   rd1_o = x15;
+        5'd16   :   rd1_o = x16;
+        5'd17   :   rd1_o = x17;
+        5'd18   :   rd1_o = x18;
+        5'd19   :   rd1_o = x19;
+        5'd20   :   rd1_o = x20;
+        5'd21   :   rd1_o = x21;
+        5'd22   :   rd1_o = x22;
+        5'd23   :   rd1_o = x23;
+        5'd24   :   rd1_o = x24;
+        5'd25   :   rd1_o = x25;
+        5'd26   :   rd1_o = x26;
+        5'd27   :   rd1_o = x27;
+        5'd28   :   rd1_o = x28;
+        5'd29   :   rd1_o = x29;
+        5'd30   :   rd1_o = x30;
+        5'd31   :   rd1_o = x31;
+        default;
+        endcase
+        // 两个 case
+        case(rr2_i)
+        5'd0    :   rd2_o = x0;
+        5'd1    :   rd2_o = x1;
+        5'd2    :   rd2_o = x2;
+        5'd3    :   rd2_o = x3;
+        5'd4    :   rd2_o = x4;
+        5'd5    :   rd2_o = x5;
+        5'd6    :   rd2_o = x6;
+        5'd7    :   rd2_o = x7;
+        5'd8    :   rd2_o = x8;
+        5'd9    :   rd2_o = x9;
+        5'd10   :   rd2_o = x10;
+        5'd11   :   rd2_o = x11;
+        5'd12   :   rd2_o = x12;
+        5'd13   :   rd2_o = x13;
+        5'd14   :   rd2_o = x14;
+        5'd15   :   rd2_o = x15;
+        5'd16   :   rd2_o = x16;
+        5'd17   :   rd2_o = x17;
+        5'd18   :   rd2_o = x18;
+        5'd19   :   rd2_o = x19;
+        5'd20   :   rd2_o = x20;
+        5'd21   :   rd2_o = x21;
+        5'd22   :   rd2_o = x22;
+        5'd23   :   rd2_o = x23;
+        5'd24   :   rd2_o = x24;
+        5'd25   :   rd2_o = x25;
+        5'd26   :   rd2_o = x26;
+        5'd27   :   rd2_o = x27;
+        5'd28   :   rd2_o = x28;
+        5'd29   :   rd2_o = x29;
+        5'd30   :   rd2_o = x30;
+        5'd31   :   rd2_o = x31;
+        default;
+        endcase
     end
     // 时序逻辑，写寄存器
     always @ (posedge clk_i or negedge rst_n_i) begin

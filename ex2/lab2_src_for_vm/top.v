@@ -47,7 +47,6 @@ module top(
     wire [1:0] npc_op;
     // 输出
     wire [31:0] npc_npc;
-    wire [31:0] npc_pc4;
     // IROM
     // 输入
     wire [31:0] irom_adr;
@@ -119,8 +118,7 @@ module top(
         .pc_i       (npc_pc),
         .imm_i      (npc_imm),
         .npc_op     (npc_op),
-        .npc_o      (npc_npc),
-        .pc4_o      (npc_pc4)
+        .npc_o      (npc_npc)
     );
     // irom部件
     irom U_irom_0(
@@ -156,7 +154,6 @@ module top(
     // memram部件
     memram U_memram_0(
         .clk_i      (clk_cpu),
-        .rst_n_i    (rst_n),
         .addr_i     (dram_addr),
         .memwr_i    (dram_memwr),
         .wr_data_i  (dram_wr_data),

@@ -25,7 +25,7 @@ module pc(
     input               rst_n_i,
     input       [31:0]  din_i,
     output  reg [31:0]  pc_o,
-    output     [31:0]     pc4_o
+    output      [31:0]  pc4_o
     );
     reg state;
     // 状态机

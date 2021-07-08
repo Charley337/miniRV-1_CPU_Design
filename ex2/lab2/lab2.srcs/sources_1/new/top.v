@@ -22,19 +22,23 @@
 
 
 module top(
-    input   clk_i,
-    input   rst_n_i
+    input   clk,
+    input   rst_n,
+    output                  debug_wb_have_inst,
+    output   [31:0]       debug_wb_pc,
+    output                  debug_wb_ena,
+    output   [4:0]         debug_wb_reg,
+    output    [31:0]      debug_wb_value
     );
     // 连接信号
     // CPU 时钟
-//    wire clk_cpu;
     wire clk_cpu;
-    assign clk_cpu = clk_i;
     // PC
     // 输入
     wire [31:0] pc_din;
     // 输出
     wire [31:0] pc_pc;
+    wire [31:0] pc_pc4;
     // NPC
     // 输入
     wire [31:0] npc_pc;
@@ -42,7 +46,6 @@ module top(
     wire [1:0] npc_op;
     // 输出
     wire [31:0] npc_npc;
-    wire [31:0] npc_pc4;
     // IROM
     // 输入
     wire [31:0] irom_adr;
@@ -102,24 +105,24 @@ module top(
     wire ctrl_branch;
     
     // 时钟部件
-//    cpuclk U_cpuclk_0(
-//        .clk_in1    (clk_i),
-//        .clk_out1   (clk_cpu)
-//    );
+    cpuclk U_cpuclk_0(
+        .clk_in1    (clk),
+        .clk_out1   (clk_cpu)
+    );
     // pc部件
     pc U_pc_0(
         .clk_i      (clk_cpu),
-        .rst_n_i    (rst_n_i),
+        .rst_n_i    (rst_n),
         .din_i      (pc_din),
-        .pc_o       (pc_pc)
+        .pc_o       (pc_pc), 
+        .pc4_o     (pc_pc4)
     );
     // npc部件
     npc U_npc_0(
         .pc_i       (npc_pc),
         .imm_i      (npc_imm),
         .npc_op     (npc_op),
-        .npc_o      (npc_npc),
-        .pc4_o      (npc_pc4)
+        .npc_o      (npc_npc)
     );
     // irom部件
     irom U_irom_0(
@@ -135,7 +138,7 @@ module top(
     // rf部件
     rf U_rf_0(
         .clk_i      (clk_cpu),
-        .rst_n_i    (rst_n_i),
+        .rst_n_i    (rst_n),
         .rr1_i      (rf_rr1),
         .rr2_i      (rf_rr2),
         .wr_i       (rf_wr),
@@ -155,7 +158,6 @@ module top(
     // memram部件
     memram U_memram_0(
         .clk_i      (clk_cpu),
-        .rst_n_i    (rst_n_i),
         .addr_i     (dram_addr),
         .memwr_i    (dram_memwr),
         .wr_data_i  (dram_wr_data),
@@ -200,7 +202,7 @@ module top(
     assign rf_wr    =   irom_inst[11:7];
     assign rf_wd    =   (ctrl_wd_sel == 2'b00)  ?   alu_c : 
                         (ctrl_wd_sel == 2'b01)  ?   dram_rd_data : 
-                        (ctrl_wd_sel == 2'b10)  ?   npc_pc4 : 
+                        (ctrl_wd_sel == 2'b10)  ?   pc_pc4 : 
                                                     sext_ext;
     assign rf_we    =   ctrl_rf_we;
     // SEXT
@@ -221,4 +223,11 @@ module top(
     assign dram_memwr   =   ctrl_dram_we;
     // 控制单元
     assign ctrl_inst    =   irom_inst;
+
+    // 输出信号
+    assign debug_wb_have_inst = 1'b1;
+    assign debug_wb_pc = pc_pc;
+    assign debug_wb_ena = ctrl_rf_we;
+    assign debug_wb_reg = rf_wr;
+    assign debug_wb_value = rf_wd;
 endmodule

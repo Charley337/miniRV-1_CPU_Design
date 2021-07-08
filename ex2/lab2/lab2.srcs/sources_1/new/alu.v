@@ -96,7 +96,7 @@ module alu(
     assign branch_beq =     (a_i == b_i)            ?   1'b1 : 
                                                         1'b0;
     assign branch_bne =     ~branch_beq;
-    assign branch_blt =     (a_i < b_i)             ?   1'b1 : 
+    assign branch_blt =     (c_sub[31])             ?   1'b1 : 
                                                         1'b0;
     assign branch_bge =     ~branch_blt;
     assign branch_o =       (alu_op == `ALU_BEQ)    ?   branch_beq : 
