@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=D:/my_document/IDE/Xilinx/SDK/2018.3/bin;D:/my_document/IDE/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;D:/my_document/IDE/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:D:/my_document/IDE/Xilinx/Vivado/2018.3/bin
+  PATH=C:/Xilinx/SDK/2018.3/bin;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2018.3/bin
 else
-  PATH=D:/my_document/IDE/Xilinx/SDK/2018.3/bin;D:/my_document/IDE/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;D:/my_document/IDE/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:D:/my_document/IDE/Xilinx/Vivado/2018.3/bin:$PATH
+  PATH=C:/Xilinx/SDK/2018.3/bin;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2018.3/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/my_document/git_repositories/mini-rv-1_-design/ex2/lab2/lab2.runs/prgrom_synth_1'
+HD_PWD='C:/Users/Administrator/Desktop/tjx_risc_smaller_2021_07_14/mini-rv-1_-design/ex2/lab2/lab2.runs/prgrom_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

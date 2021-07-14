@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
 // Date        : Sun Jul  4 21:01:09 2021
 // Host        : TJX running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               d:/my_document/git_repositories/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/ip/prgrom/prgrom_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top prgrom -prefix
+//               prgrom_ prgrom_stub.v
 // Design      : prgrom
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tfgg484-1

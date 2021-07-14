@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
 -- Date        : Sun Jul  4 21:01:09 2021
 -- Host        : TJX running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               d:/my_document/git_repositories/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/ip/prgrom/prgrom_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top prgrom -prefix
+--               prgrom_ prgrom_sim_netlist.vhdl
 -- Design      : prgrom
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -19,8 +19,6 @@ entity prgrom_rom is
     spo : out STD_LOGIC_VECTOR ( 9 downto 0 );
     a : in STD_LOGIC_VECTOR ( 13 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of prgrom_rom : entity is "rom";
 end prgrom_rom;
 
 architecture STRUCTURE of prgrom_rom is
@@ -199,8 +197,6 @@ entity prgrom_dist_mem_gen_v8_0_12_synth is
     spo : out STD_LOGIC_VECTOR ( 9 downto 0 );
     a : in STD_LOGIC_VECTOR ( 13 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of prgrom_dist_mem_gen_v8_0_12_synth : entity is "dist_mem_gen_v8_0_12_synth";
 end prgrom_dist_mem_gen_v8_0_12_synth;
 
 architecture STRUCTURE of prgrom_dist_mem_gen_v8_0_12_synth is
@@ -299,8 +295,6 @@ entity prgrom_dist_mem_gen_v8_0_12 is
   attribute C_SYNC_ENABLE of prgrom_dist_mem_gen_v8_0_12 : entity is 1;
   attribute C_WIDTH : integer;
   attribute C_WIDTH of prgrom_dist_mem_gen_v8_0_12 : entity is 32;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of prgrom_dist_mem_gen_v8_0_12 : entity is "dist_mem_gen_v8_0_12";
 end prgrom_dist_mem_gen_v8_0_12;
 
 architecture STRUCTURE of prgrom_dist_mem_gen_v8_0_12 is

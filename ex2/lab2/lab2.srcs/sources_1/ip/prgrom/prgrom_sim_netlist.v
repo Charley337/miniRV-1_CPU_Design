@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
 // Date        : Sun Jul  4 21:01:09 2021
 // Host        : TJX running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               d:/my_document/git_repositories/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/ip/prgrom/prgrom_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top prgrom -prefix
+//               prgrom_ prgrom_sim_netlist.v
 // Design      : prgrom
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -88,7 +88,7 @@ endmodule
 (* C_MEM_INIT_FILE = "prgrom.mif" *) (* C_MEM_TYPE = "0" *) (* C_PARSER_TYPE = "1" *) 
 (* C_PIPELINE_STAGES = "0" *) (* C_QCE_JOINED = "0" *) (* C_QUALIFY_WE = "0" *) 
 (* C_READ_MIF = "1" *) (* C_REG_A_D_INPUTS = "0" *) (* C_REG_DPRA_INPUT = "0" *) 
-(* C_SYNC_ENABLE = "1" *) (* C_WIDTH = "32" *) (* ORIG_REF_NAME = "dist_mem_gen_v8_0_12" *) 
+(* C_SYNC_ENABLE = "1" *) (* C_WIDTH = "32" *) 
 module prgrom_dist_mem_gen_v8_0_12
    (a,
     d,
@@ -260,7 +260,6 @@ module prgrom_dist_mem_gen_v8_0_12
         .spo({\^spo [31],\^spo [26],\^spo [24:21],\^spo [10],\^spo [8],\^spo [6:5]}));
 endmodule
 
-(* ORIG_REF_NAME = "dist_mem_gen_v8_0_12_synth" *) 
 module prgrom_dist_mem_gen_v8_0_12_synth
    (spo,
     a);
@@ -275,7 +274,6 @@ module prgrom_dist_mem_gen_v8_0_12_synth
         .spo(spo));
 endmodule
 
-(* ORIG_REF_NAME = "rom" *) 
 module prgrom_rom
    (spo,
     a);

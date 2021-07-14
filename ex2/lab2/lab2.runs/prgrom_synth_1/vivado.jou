@@ -2,11 +2,11 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun Jul  4 20:49:07 2021
-# Process ID: 19168
-# Current directory: D:/my_document/git_repositories/mini-rv-1_-design/ex2/lab2/lab2.runs/prgrom_synth_1
+# Start of session at: Wed Jul 14 11:42:18 2021
+# Process ID: 10436
+# Current directory: C:/Users/Administrator/Desktop/tjx_risc_smaller_2021_07_14/mini-rv-1_-design/ex2/lab2/lab2.runs/prgrom_synth_1
 # Command line: vivado.exe -log prgrom.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source prgrom.tcl
-# Log file: D:/my_document/git_repositories/mini-rv-1_-design/ex2/lab2/lab2.runs/prgrom_synth_1/prgrom.vds
-# Journal file: D:/my_document/git_repositories/mini-rv-1_-design/ex2/lab2/lab2.runs/prgrom_synth_1\vivado.jou
+# Log file: C:/Users/Administrator/Desktop/tjx_risc_smaller_2021_07_14/mini-rv-1_-design/ex2/lab2/lab2.runs/prgrom_synth_1/prgrom.vds
+# Journal file: C:/Users/Administrator/Desktop/tjx_risc_smaller_2021_07_14/mini-rv-1_-design/ex2/lab2/lab2.runs/prgrom_synth_1\vivado.jou
 #-----------------------------------------------------------
 source prgrom.tcl -notrace
