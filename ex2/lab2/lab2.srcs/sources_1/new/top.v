@@ -23,7 +23,8 @@
 
 module top(
     input               clk,
-    input               rst_n,
+    input               rst,
+    input       [23:0]  sw_data,
     output  reg         led0_en,
     output  reg         led1_en,
     output  reg         led2_en,
@@ -39,14 +40,16 @@ module top(
     output  reg         led_ce ,
     output  reg         led_cf ,
     output  reg         led_cg ,
-    output  reg         led_dp
+    output  reg         led_dp,
+    output  reg [23:0]  lt_data
     );
     // 连接信号
-    // 时钟
+    // 时钟和复位
     wire clk_cpu;
     wire clk_lock;
     wire pll_clk;
     wire clk_disp;
+    wire rst_n;
     // CPU
     // 输入
     wire [31:0] cpu_irom_inst;
@@ -72,8 +75,11 @@ module top(
     wire [31:0] dram_addr;
     wire [31:0] dram_wr_data;
     wire dram_memwr;
+    wire [23:0] dram_sw_data;
     // 输出
     wire [31:0] dram_rd_data;
+    wire [7:0] dram_lt_high;
+    wire [15:0] dram_lt_low;
     // DISPLAY
     // 输入
     wire display_busy;
@@ -137,10 +143,14 @@ module top(
     // memram部件
     memram U_memram_0(
         .clk_i      (clk_cpu),
+        .rst_n_i    (rst_n),
         .addr_i     (dram_addr),
         .memwr_i    (dram_memwr),
         .wr_data_i  (dram_wr_data),
-        .rd_data_o  (dram_rd_data)
+        .sw_data_i  (dram_sw_data),
+        .rd_data_o  (dram_rd_data),
+        .lt_high_o  (dram_lt_high),
+        .lt_low_o   (dram_lt_low)
     );
     // display 部件
     display U_display_0(
@@ -170,6 +180,8 @@ module top(
     );
     
     // 开始连线
+    // 复位
+    assign rst_n = ~rst;
     // CPU
     assign cpu_irom_inst    = irom_inst;
     assign cpu_dram_rd_data = dram_rd_data;
@@ -179,6 +191,7 @@ module top(
     assign dram_addr    =   cpu_dram_addr;
     assign dram_wr_data =   cpu_dram_wr_data;
     assign dram_memwr   =   cpu_dram_memwr;
+    assign dram_sw_data =   sw_data;
     // DISPLAY
     assign display_busy = 1'b0;
     assign display_z1   = cpu_debug_wb_pc[31:24];
@@ -234,5 +247,8 @@ module top(
     end
     always @ (*) begin
         led_dp = display_led_dp;
+    end
+    always @ (*) begin
+        lt_data = {dram_lt_high, dram_lt_low};
     end
 endmodule
