@@ -96,6 +96,7 @@ module cpu(
     wire [31:0] id_ex_rd2_i;
     wire [31:0] id_ex_ext_i;
     wire [31:0] id_ex_pc_i;
+    wire [31:0] id_ex_pc4_i;
     wire [4:0] id_ex_alu_op_i;
     wire id_ex_alua_sel_i;
     wire id_ex_alub_sel_i;
@@ -105,11 +106,14 @@ module cpu(
     wire id_ex_imm_sel_i;
     wire id_ex_dram_we_i;
     wire [1:0] id_ex_wdin_sel_i;
+    wire id_ex_rf_we_i;
+    wire [2:0] id_ex_wd_sel_i;
     // 输出
     wire [31:0] id_ex_rd1_o;
     wire [31:0] id_ex_rd2_o;
     wire [31:0] id_ex_ext_o;
     wire [31:0] id_ex_pc_o;
+    wire [31:0] id_ex_pc4_o;
     wire [4:0] id_ex_alu_op_o;
     wire id_ex_alua_sel_o;
     wire id_ex_alub_sel_o;
@@ -119,6 +123,8 @@ module cpu(
     wire id_ex_imm_sel_o;
     wire id_ex_dram_we_o;
     wire [1:0] id_ex_wdin_sel_o;
+    wire id_ex_rf_we_o;
+    wire [2:0] id_ex_wd_sel_o;
     
     // 执行 EX
     // ALU
@@ -148,13 +154,21 @@ module cpu(
     // 输入
     wire [31:0] ex_mem_aluc_i;
     wire [31:0] ex_mem_rd2_i;
+    wire [31:0] ex_mem_pc4_i;
+    wire [31:0] ex_mem_ext_i;
     wire ex_mem_dram_we_i;
     wire [1:0] ex_mem_wdin_sel_i;
+    wire ex_mem_rf_we_i;
+    wire [2:0] ex_mem_wd_sel_i;
     // 输出
     wire [31:0] ex_mem_aluc_o;
     wire [31:0] ex_mem_rd2_o;
+    wire [31:0] ex_mem_pc4_o;
+    wire [31:0] ex_mem_ext_o;
     wire ex_mem_dram_we_o;
     wire [1:0] ex_mem_wdin_sel_o;
+    wire ex_mem_rf_we_o;
+    wire [2:0] ex_mem_wd_sel_o;
     
     // 访存 MEM
     
@@ -162,9 +176,17 @@ module cpu(
     // 输入
     wire [31:0] mem_wb_aluc_i;
     wire [31:0] mem_wb_dramrd_i;
+    wire [31:0] mem_wb_pc4_i;
+    wire [31:0] mem_wb_ext_i;
+    wire mem_wb_rf_we_i;
+    wire [2:0] mem_wb_wd_sel_i;
     // 输出
     wire [31:0] mem_wb_aluc_o;
     wire [31:0] mem_wb_dramrd_o;
+    wire [31:0] mem_wb_pc4_o;
+    wire [31:0] mem_wb_ext_o;
+    wire mem_wb_rf_we_o;
+    wire [2:0] mem_wb_wd_sel_o;
     
     
     // 开始实例化
@@ -235,10 +257,12 @@ module cpu(
         .id_rd2             (id_ex_rd2_i),
         .id_ext             (id_ex_ext_i),
         .id_pc              (id_ex_pc_i),
+        .id_pc4             (id_ex_pc4_i),
         .ex_rd1             (id_ex_rd1_o),
         .ex_rd2             (id_ex_rd2_o),
         .ex_ext             (id_ex_ext_o),
         .ex_pc              (id_ex_pc_o),
+        .ex_pc4             (id_ex_pc4_o),
         .id_alu_op          (id_ex_alu_op_i),
         .id_alua_sel        (id_ex_alua_sel_i),
         .id_alub_sel        (id_ex_alub_sel_i),
@@ -248,6 +272,8 @@ module cpu(
         .id_imm_sel         (id_ex_imm_sel_i),
         .id_dram_we         (id_ex_dram_we_i),
         .id_wdin_sel        (id_ex_wdin_sel_i),
+        .id_rf_we           (id_ex_rf_we_i),
+        .id_wd_sel          (id_ex_wd_sel_i),
         .ex_alu_op          (id_ex_alu_op_o),
         .ex_alua_sel        (id_ex_alua_sel_o),
         .ex_alub_sel        (id_ex_alub_sel_o),
@@ -256,7 +282,9 @@ module cpu(
         .ex_npc_op          (id_ex_npc_op_o),
         .ex_imm_sel         (id_ex_imm_sel_o),
         .ex_dram_we         (id_ex_dram_we_o),
-        .ex_wdin_sel        (id_ex_wdin_sel_o)
+        .ex_wdin_sel        (id_ex_wdin_sel_o),
+        .ex_rf_we           (id_ex_rf_we_o),
+        .ex_wd_sel          (id_ex_wd_sel_o)
     );
     
     // 执行 EX
@@ -289,12 +317,20 @@ module cpu(
         .rst_n_i        (rst_n_i),
         .ex_aluc        (ex_mem_aluc_i),
         .ex_rd2         (ex_mem_rd2_i),
+        .ex_pc4         (ex_mem_pc4_i),
+        .ex_ext         (ex_mem_ext_i),
         .mem_aluc       (ex_mem_aluc_o),
         .mem_rd2        (ex_mem_rd2_o),
+        .mem_pc4        (ex_mem_pc4_o),
+        .mem_ext        (ex_mem_ext_o),
         .ex_dram_we     (ex_mem_dram_we_i),
         .ex_wdin_sel    (ex_mem_wdin_sel_i),
+        .ex_rf_we       (ex_mem_rf_we_i),
+        .ex_wd_sel      (ex_mem_wd_sel_i),
         .mem_dram_we    (ex_mem_dram_we_o),
-        .mem_wdin_sel   (ex_mem_wdin_sel_o)
+        .mem_wdin_sel   (ex_mem_wdin_sel_o),
+        .mem_rf_we      (ex_mem_rf_we_o),
+        .mem_wd_sel     (ex_mem_wd_sel_o)
     );
     
     // 访存 MEM
@@ -305,8 +341,16 @@ module cpu(
         .rst_n_i        (rst_n_i),
         .mem_aluc       (mem_wb_aluc_i),
         .mem_dramrd     (mem_wb_dramrd_i),
+        .mem_pc4        (mem_wb_pc4_i),
+        .mem_ext        (mem_wb_ext_i),
         .wb_aluc        (mem_wb_aluc_o),
-        .wb_dramrd      (mem_wb_dramrd_o)
+        .wb_dramrd      (mem_wb_dramrd_o),
+        .wb_pc4         (mem_wb_pc4_o),
+        .wb_ext         (mem_wb_ext_o),
+        .mem_rf_we      (mem_wb_rf_we_i),
+        .mem_wd_sel     (mem_wb_wd_sel_i),
+        .wb_rf_we       (mem_wb_rf_we_o),
+        .wb_wd_sel      (mem_wb_wd_sel_o)
     );
     
     // 连线

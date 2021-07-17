@@ -26,9 +26,20 @@ module reg_mem_wb(
     
     input       [31:0]  mem_aluc,
     input       [31:0]  mem_dramrd,
+    input       [31:0]  mem_pc4,
+    input       [31:0]  mem_ext,
     
     output  reg [31:0]  wb_aluc,
-    output  reg [31:0]  wb_dramrd
+    output  reg [31:0]  wb_dramrd,
+    output  reg [31:0]  wb_pc4,
+    output  reg [31:0]  wb_ext,
+    
+    // пе╨е
+    input               mem_rf_we,
+    input               mem_wd_sel,
+    
+    output  reg         wb_rf_we,
+    output  reg [2:0]   wb_wd_sel
     );
     // wb_aluc
     always @ (posedge clk_i or negedge rst_n_i) begin

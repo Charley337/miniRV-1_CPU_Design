@@ -49,9 +49,9 @@ module control(
     wire npc_op_pc_add_imm;
     assign npc_op_pc_add_imm    =   (opcode == `OPCODE_INST_B) || 
                                     (opcode == `OPCODE_INST_J_JAL);
-    assign npc_op               =   (opcode == `OPCODE_INST_I_JALR)    ?   `NPC_OP_PC_IMM_JALR : 
-                                    (npc_op_pc_add_imm)         ?   `NPC_OP_PC_ADD_IMM : 
-                                                                    `NPC_OP_PC_ADD_4;
+    assign npc_op               =   (opcode == `OPCODE_INST_I_JALR)     ?   `NPC_OP_PC_IMM_JALR : 
+                                    (npc_op_pc_add_imm)                 ?   `NPC_OP_PC_ADD_IMM : 
+                                                                            `NPC_OP_PC_ADD_4;
     // pc_sel
     assign pc_sel = (opcode == `OPCODE_INST_I_JALR);
     // imm_sel
@@ -77,13 +77,13 @@ module control(
     assign sext_op_011  =   (opcode == `OPCODE_INST_U_LUI) || 
                             (opcode == `OPCODE_INST_U_AUIPC);
     assign sext_op_110  =   ({funct3, opcode} == {`FUNCT3_I_SLTIU, `OPCODE_INST_I});
-    assign sext_op      =   (sext_op_000)                   ?   3'b000 : 
-                            (opcode == `OPCODE_INST_S)      ?   3'b001 : 
-                            (opcode == `OPCODE_INST_B)      ?   3'b010 : 
-                            (sext_op_011)                   ?   3'b011 : 
-                            (opcode == `OPCODE_INST_J_JAL)  ?   3'b100 : 
-                            (sext_op_101)                   ?   3'b101 : 
-                            (sext_op_110)                   ?   3'b110 : 
+    assign sext_op      =   (sext_op_000)                   ?   `SEXT_OP_I_INST_ELSE : 
+                            (opcode == `OPCODE_INST_S)      ?   `SEXT_OP_S_INST : 
+                            (opcode == `OPCODE_INST_B)      ?   `SEXT_OP_B_INST : 
+                            (sext_op_011)                   ?   `SEXT_OP_U_INST : 
+                            (opcode == `OPCODE_INST_J_JAL)  ?   `SEXT_OP_J_INST : 
+                            (sext_op_101)                   ?   `SEXT_OP_I_INST_SLLI : 
+                            (sext_op_110)                   ?   `SEXT_OP_I_INST_SLTIU : 
                                                                 3'b000;
     // wd_sel
     wire wd_sel_001;

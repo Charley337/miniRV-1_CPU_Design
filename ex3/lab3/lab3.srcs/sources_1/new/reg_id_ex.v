@@ -28,11 +28,13 @@ module reg_id_ex(
     input       [31:0]  id_rd2,
     input       [31:0]  id_ext,
     input       [31:0]  id_pc,
+    input       [31:0]  id_pc4,
     
     output  reg [31:0]  ex_rd1,
     output  reg [31:0]  ex_rd2,
     output  reg [31:0]  ex_ext,
     output  reg [31:0]  ex_pc,
+    output  reg [31:0]  ex_pc4,
     
     // ¿ØÖÆÐÅºÅ
     input       [4:0]   id_alu_op,
@@ -44,6 +46,8 @@ module reg_id_ex(
     input               id_imm_sel,
     input               id_dram_we,
     input       [1:0]   id_wdin_sel,
+    input               id_rf_we,
+    input       [2:0]   id_wd_sel,
     
     output  reg [4:0]   ex_alu_op,
     output  reg         ex_alua_sel,
@@ -53,7 +57,9 @@ module reg_id_ex(
     output  reg [1:0]   ex_npc_op,
     output  reg         ex_imm_sel,
     output  reg         ex_dram_we,
-    output  reg [1:0]   ex_wdin_sel
+    output  reg [1:0]   ex_wdin_sel,
+    output  reg         ex_rf_we,
+    output  reg [2:0]   ex_wd_sel
     );
     // ex_rd1
     always @ (posedge clk_i or negedge rst_n_i) begin

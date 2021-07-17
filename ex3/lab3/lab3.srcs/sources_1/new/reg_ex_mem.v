@@ -26,16 +26,24 @@ module reg_ex_mem(
     
     input       [31:0]  ex_aluc,
     input       [31:0]  ex_rd2,
+    input       [31:0]  ex_pc4,
+    input       [31:0]  ex_ext,
     
     output  reg [31:0]  mem_aluc,
     output  reg [31:0]  mem_rd2,
+    output  reg [31:0]  mem_pc4,
+    output  reg [31:0]  mem_ext,
     
     // ¿ØÖÆÐÅºÅ
     input               ex_dram_we,
     input       [1:0]   ex_wdin_sel,
+    input               ex_rf_we,
+    input       [2:0]   ex_wd_sel,
     
     output  reg         mem_dram_we,
-    output  reg [1:0]   mem_wdin_sel
+    output  reg [1:0]   mem_wdin_sel,
+    output  reg         mem_rf_we,
+    output  reg [2:0]   mem_wd_sel
     );
     // mem_aluc
     always @ (posedge clk_i or negedge rst_n_i) begin
