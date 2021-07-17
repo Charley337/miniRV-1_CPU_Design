@@ -148,31 +148,31 @@ module alu(
     assign branch_bgeu =    ~branch_bltu;
     
     // 根据 alu_op 决定何种运算
-    assign c_o =            (alu_op == `ALU_ADD)    ?   c_add : 
-                            (alu_op == `ALU_SUB)    ?   c_sub : 
-                            (alu_op == `ALU_AND)    ?   c_and : 
-                            (alu_op == `ALU_OR)     ?   c_or : 
-                            (alu_op == `ALU_XOR)    ?   c_xor : 
-                            (alu_op == `ALU_SLL)    ?   c_sll : 
-                            (alu_op == `ALU_SRL)    ?   c_srl : 
-                            (alu_op == `ALU_SRA)    ?   c_sra : 
-                            (alu_op == `ALU_SLT)    ?   c_slt : 
-                            (alu_op == `ALU_SLTU)   ?   c_sltu : 
-                            (alu_op == `ALU_MUL)    ?   c_mul : 
-                            (alu_op == `ALU_MULH)   ?   c_mulh : 
-                            (alu_op == `ALU_MULHU)  ?   c_mulhu : 
-                            (alu_op == `ALU_MULHSU) ?   c_mulhsu : 
-                            (alu_op == `ALU_DIV)    ?   c_div : 
-                            (alu_op == `ALU_DIVU)   ?   c_divu : 
-                            (alu_op == `ALU_REM)    ?   c_rem : 
-                            (alu_op == `ALU_REMU)   ?   c_remu : 
+    assign c_o =            (alu_op == `ALU_OP_ADD)    ?   c_add : 
+                            (alu_op == `ALU_OP_SUB)    ?   c_sub : 
+                            (alu_op == `ALU_OP_AND)    ?   c_and : 
+                            (alu_op == `ALU_OP_OR)     ?   c_or : 
+                            (alu_op == `ALU_OP_XOR)    ?   c_xor : 
+                            (alu_op == `ALU_OP_SLL)    ?   c_sll : 
+                            (alu_op == `ALU_OP_SRL)    ?   c_srl : 
+                            (alu_op == `ALU_OP_SRA)    ?   c_sra : 
+                            (alu_op == `ALU_OP_SLT)    ?   c_slt : 
+                            (alu_op == `ALU_OP_SLTU)   ?   c_sltu : 
+                            (alu_op == `ALU_OP_MUL)    ?   c_mul : 
+                            (alu_op == `ALU_OP_MULH)   ?   c_mulh : 
+                            (alu_op == `ALU_OP_MULHU)  ?   c_mulhu : 
+                            (alu_op == `ALU_OP_MULHSU) ?   c_mulhsu : 
+                            (alu_op == `ALU_OP_DIV)    ?   c_div : 
+                            (alu_op == `ALU_OP_DIVU)   ?   c_divu : 
+                            (alu_op == `ALU_OP_REM)    ?   c_rem : 
+                            (alu_op == `ALU_OP_REMU)   ?   c_remu : 
                                                         32'h0;
     
-    assign branch_o =       (alu_op == `ALU_BEQ)    ?   branch_beq : 
-                            (alu_op == `ALU_BNE)    ?   branch_bne : 
-                            (alu_op == `ALU_BLT)    ?   branch_blt : 
-                            (alu_op == `ALU_BGE)    ?   branch_bge : 
-                            (alu_op == `ALU_BLTU)   ?   branch_bltu : 
-                            (alu_op == `ALU_BGEU)   ?   branch_bgeu : 
+    assign branch_o =       (alu_op == `ALU_OP_BEQ)    ?   branch_beq : 
+                            (alu_op == `ALU_OP_BNE)    ?   branch_bne : 
+                            (alu_op == `ALU_OP_BLT)    ?   branch_blt : 
+                            (alu_op == `ALU_OP_BGE)    ?   branch_bge : 
+                            (alu_op == `ALU_OP_BLTU)   ?   branch_bltu : 
+                            (alu_op == `ALU_OP_BGEU)   ?   branch_bgeu : 
                                                         1'b0;
 endmodule

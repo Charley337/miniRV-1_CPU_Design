@@ -34,7 +34,8 @@ module cpu(
     output  [31:0]  debug_wb_pc,
     output          debug_wb_ena,
     output  [4:0]   debug_wb_reg,
-    output  [31:0]  debug_wb_value
+    output  [31:0]  debug_wb_value,
+    output  [31:0]  debug_reg_x19
     );
     // 所有信号
     // 取址 IF
@@ -74,9 +75,20 @@ module cpu(
     wire [31:0] sext_ext;
     // CONTROL
     // 输入
-    
+    wire [31:0] ctrl_inst;
     // 输出
-    
+    wire [1:0] ctrl_npc_op;
+    wire ctrl_pc_sel;
+    wire ctrl_imm_sel;
+    wire [2:0] ctrl_sext_op;
+    wire [2:0] ctrl_wd_sel;
+    wire ctrl_rf_we;
+    wire [4:0] ctrl_alu_op;
+    wire ctrl_alua_sel;
+    wire ctrl_alub_sel;
+    wire ctrl_dram_we;
+    wire ctrl_branch;
+    wire [1:0] ctrl_wdin_sel;
     
     // ID/EX 寄存器
     // 输入
@@ -181,15 +193,16 @@ module cpu(
     // 译码 ID
     // RF
     rf U_rf_0(
-        .clk_i      (clk_cpu),
-        .rst_n_i    (rst_n_i),
-        .rr1_i      (rf_rr1),
-        .rr2_i      (rf_rr2),
-        .wr_i       (rf_wr),
-        .wd_i       (rf_wd),
-        .we         (rf_we),
-        .rd1_o      (rf_rd1),
-        .rd2_o      (rf_rd2)
+        .clk_i          (clk_cpu),
+        .rst_n_i        (rst_n_i),
+        .rr1_i          (rf_rr1),
+        .rr2_i          (rf_rr2),
+        .wr_i           (rf_wr),
+        .wd_i           (rf_wd),
+        .we             (rf_we),
+        .rd1_o          (rf_rd1),
+        .rd2_o          (rf_rd2),
+        .debug_reg_x19  (debug_reg_x19)
     );
     // SEXT
     sext U_sext_0(
@@ -199,7 +212,19 @@ module cpu(
     );
     // CONTROL
     control U_control_0(
-        
+        .inst_i     (ctrl_inst),
+        .npc_op     (ctrl_npc_op),
+        .pc_sel     (ctrl_pc_sel),
+        .imm_sel    (ctrl_imm_sel),
+        .sext_op    (ctrl_sext_op),
+        .wd_sel     (ctrl_wd_sel),
+        .rf_we      (ctrl_rf_we),
+        .alu_op     (ctrl_alu_op),
+        .alua_sel   (ctrl_alua_sel),
+        .alub_sel   (ctrl_alub_sel),
+        .dram_we    (ctrl_dram_we),
+        .branch_o   (ctrl_branch),
+        .wdin_sel   (ctrl_wdin_sel)
     );
     
     // ID/EX 寄存器
@@ -283,5 +308,9 @@ module cpu(
         .wb_aluc        (mem_wb_aluc_o),
         .wb_dramrd      (mem_wb_dramrd_o)
     );
+    
+    // 连线
+    // 取址 IF
+    // PC
     
 endmodule
