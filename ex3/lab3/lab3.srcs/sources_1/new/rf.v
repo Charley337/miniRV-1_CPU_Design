@@ -29,7 +29,8 @@ module rf(
     input       [31:0]  wd_i,
     input               we,
     output  reg [31:0]  rd1_o,
-    output  reg [31:0]  rd2_o
+    output  reg [31:0]  rd2_o,
+    output      [31:0]  debug_reg_x19
     );
     // ¼Ä´æÆ÷¶Ñ
     reg [31:0]  x0;
@@ -64,6 +65,8 @@ module rf(
     reg [31:0]  x29;
     reg [31:0]  x30;
     reg [31:0]  x31;
+    // debug_reg_x19
+    assign debug_reg_x19 = x19;
     // ×éºÏÂß¼­£¬¶Á¼Ä´æÆ÷
     always @ (*) begin
         // Ò»¸ö case
