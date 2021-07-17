@@ -136,7 +136,7 @@ module cpu(
     wire [31:0] alu_c;
     wire alu_branch;
     // NPC
-    // 输出
+    // 输入
     wire [31:0] npc_pc;
     wire [31:0] npc_imm;
     wire [1:0] npc_op;
@@ -353,8 +353,54 @@ module cpu(
         .wb_wd_sel      (mem_wb_wd_sel_o)
     );
     
-    // 连线
+    // 开始连线
     // 取址 IF
     // PC
+    assign pc_din = npc_npc;
+    
+    // IF/ID
+    assign if_id_pc4_i = pc_pc4;
+    assign if_id_inst_i = irom_inst;
+    assign if_id_pc_i = pc_pc;
+    
+    // 译码 ID
+    // RF
+    assign rf_rr1 = if_id_inst_o[19:15];
+    assign rf_rr2 = if_id_inst_o[24:20];
+    assign rf_wr = if_id_inst_o[11:7];
+    assign rf_wd =  (mem_wb_wd_sel_o == 3'b000) ?   mem_wb_aluc_o : 
+                    (mem_wb_wd_sel_o == 3'b001) ?   mem_wb_dramrd_o : 
+                    (mem_wb_wd_sel_o == 3'b010) ?   {24'h0, mem_wb_dramrd_o[7:0]} : 
+                    (mem_wb_wd_sel_o == 3'b011) ?   {16'h0, mem_wb_dramrd_o[15:0]} : 
+                    (mem_wb_wd_sel_o == 3'b100) ?   mem_wb_pc4_o : 
+                    (mem_wb_wd_sel_o == 3'b101) ?   mem_wb_ext_o : 
+                                                    32'h0;
+    assign rf_we = mem_wb_rf_we_o;
+    // SEXT
+    assign sext_inst = if_id_inst_o[31:7];
+    assign sext_op = ctrl_sext_op;
+    // CONTROL
+    assign ctrl_inst = if_id_inst_o;
+    
+    // ID/EX
+    assign id_ex_rd1_i = rf_rd1;
+    assign id_ex_rd2_i = rf_rd2;
+    assign id_ex_ext_i = sext_ext;
+    assign id_ex_pc_i = if_id_pc_o;
+    assign id_ex_pc4_i = if_id_pc4_o;
+    assign id_ex_alu_op_i = ctrl_alu_op;
+    assign id_ex_alua_sel_i = ctrl_alua_sel;
+    assign id_ex_alub_sel_i = ctrl_alub_sel;
+    assign id_ex_branch_ctrl_i = ctrl_branch;
+    assign id_ex_pc_sel_i = ctrl_pc_sel;
+    assign id_ex_npc_op_i = ctrl_npc_op;
+    assign id_ex_imm_sel_i = ctrl_imm_sel;
+    assign id_ex_dram_we_i = ctrl_dram_we;
+    assign id_ex_wdin_sel_i = ctrl_wdin_sel;
+    assign id_ex_rf_we_i = ctrl_rf_we;
+    assign id_ex_wd_sel_i = ctrl_wd_sel;
+
+    // 执行 EX
+    // ALU
     
 endmodule
