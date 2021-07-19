@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -22,23 +22,28 @@
 
 module top(
     input               clk,
-    input               rst,
-    output  reg         led0_en,
-    output  reg         led1_en,
-    output  reg         led2_en,
-    output  reg         led3_en,
-    output  reg         led4_en,
-    output  reg         led5_en,
-    output  reg         led6_en,
-    output  reg         led7_en,
-    output  reg         led_ca ,
-    output  reg         led_cb ,
-    output  reg         led_cc ,
-    output  reg         led_cd ,
-    output  reg         led_ce ,
-    output  reg         led_cf ,
-    output  reg         led_cg ,
-    output  reg         led_dp
+    input               rst_n,
+    output        debug_wb_have_inst,
+    output [31:0] debug_wb_pc,
+    output        debug_wb_ena,
+    output [4:0]  debug_wb_reg,
+    output [31:0] debug_wb_value
+    // output  reg         led0_en,
+    // output  reg         led1_en,
+    // output  reg         led2_en,
+    // output  reg         led3_en,
+    // output  reg         led4_en,
+    // output  reg         led5_en,
+    // output  reg         led6_en,
+    // output  reg         led7_en,
+    // output  reg         led_ca ,
+    // output  reg         led_cb ,
+    // output  reg         led_cc ,
+    // output  reg         led_cd ,
+    // output  reg         led_ce ,
+    // output  reg         led_cf ,
+    // output  reg         led_cg ,
+    // output  reg         led_dp
     );
     // 所有信号
     // 时钟和复位
@@ -46,7 +51,7 @@ module top(
     wire clk_lock;
     wire pll_clk;
     wire clk_disp;
-    wire rst_n;
+    // wire rst_n;
     // CPU
     // 输入
     wire [31:0] cpu_irom_inst;
@@ -101,12 +106,14 @@ module top(
     wire display_led_dp;
 
     // 时钟部件
-    cpuclk U_cpuclk_0(
-        .clk_in1    (clk),
-        .locked     (clk_lock),
-        .clk_out1   (pll_clk)
-    );
-    assign clk_cpu = pll_clk & clk_lock;
+    // cpuclk U_cpuclk_0(
+    //     .clk_in1    (clk),
+    //     .locked     (clk_lock),
+    //     .clk_out1   (pll_clk)
+    // );
+    // assign clk_cpu = pll_clk & clk_lock;
+    assign clk_cpu = clk;
+
     divider U_divider_0(
         .clk_i      (clk),
         .rst_n_i    (rst_n),
@@ -176,7 +183,7 @@ module top(
 
     // 开始连线
     // 复位
-    assign rst_n = ~rst;
+    // assign rst_n = ~rst;
     // CPU
     assign cpu_irom_inst =      irom_inst;
     assign cpu_dram_rd_data =   dram_rd_data;
@@ -193,53 +200,64 @@ module top(
     assign display_z2 =     cpu_debug_reg_x19[15:8];
     assign display_r2 =     cpu_debug_reg_x19[7:0];
 
+
     // 输出信号
-    always @ (*) begin
-        led0_en = display_led0_en;
-    end
-    always @ (*) begin
-        led1_en = display_led1_en;
-    end
-    always @ (*) begin
-        led2_en = display_led2_en;
-    end
-    always @ (*) begin
-        led3_en = display_led3_en;
-    end
-    always @ (*) begin
-        led4_en = display_led4_en;
-    end
-    always @ (*) begin
-        led5_en = display_led5_en;
-    end
-    always @ (*) begin
-        led6_en = display_led6_en;
-    end
-    always @ (*) begin
-        led7_en = display_led7_en;
-    end
-    always @ (*) begin
-        led_ca = display_led_ca;
-    end
-    always @ (*) begin
-        led_cb = display_led_cb;
-    end
-    always @ (*) begin
-        led_cc = display_led_cc;
-    end
-    always @ (*) begin
-        led_cd = display_led_cd;
-    end
-    always @ (*) begin
-        led_ce = display_led_ce;
-    end
-    always @ (*) begin
-        led_cf = display_led_cf;
-    end
-    always @ (*) begin
-        led_cg = display_led_cg;
-    end
-    always @ (*) begin
-        led_dp = display_led_dp;
-    end
+    // 
+    assign debug_wb_have_inst = cpu_debug_wb_have_inst;
+    assign debug_wb_pc = cpu_debug_wb_pc;
+    assign debug_wb_ena = cpu_debug_wb_ena;
+    assign debug_wb_reg = cpu_debug_wb_reg;
+    assign debug_wb_value = cpu_debug_wb_value;
+
+
+    // always @ (*) begin
+    //     led0_en = display_led0_en;
+    // end
+    // always @ (*) begin
+    //     led1_en = display_led1_en;
+    // end
+    // always @ (*) begin
+    //     led2_en = display_led2_en;
+    // end
+    // always @ (*) begin
+    //     led3_en = display_led3_en;
+    // end
+    // always @ (*) begin
+    //     led4_en = display_led4_en;
+    // end
+    // always @ (*) begin
+    //     led5_en = display_led5_en;
+    // end
+    // always @ (*) begin
+    //     led6_en = display_led6_en;
+    // end
+    // always @ (*) begin
+    //     led7_en = display_led7_en;
+    // end
+    // always @ (*) begin
+    //     led_ca = display_led_ca;
+    // end
+    // always @ (*) begin
+    //     led_cb = display_led_cb;
+    // end
+    // always @ (*) begin
+    //     led_cc = display_led_cc;
+    // end
+    // always @ (*) begin
+    //     led_cd = display_led_cd;
+    // end
+    // always @ (*) begin
+    //     led_ce = display_led_ce;
+    // end
+    // always @ (*) begin
+    //     led_cf = display_led_cf;
+    // end
+    // always @ (*) begin
+    //     led_cg = display_led_cg;
+    // end
+    // always @ (*) begin
+    //     led_dp = display_led_dp;
+    // end
+
+
 endmodule

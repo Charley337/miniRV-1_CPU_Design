@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -144,6 +144,7 @@ module cpu(
     // NPC
     //  ‰»Î
     wire [31:0] npc_pc;
+    wire [31:0] npc_pc_pc;
     wire [31:0] npc_imm;
     wire [1:0]  npc_op;
     //  ‰≥ˆ
@@ -323,6 +324,7 @@ module cpu(
     // NPC
     npc U_npc_0(
         .pc_i       (npc_pc),
+        .pc_pc_i    (npc_pc_pc),
         .imm_i      (npc_imm),
         .npc_op     (npc_op),
         .npc_o      (npc_npc)
@@ -400,7 +402,13 @@ module cpu(
     assign if_id_pc4_i = pc_pc4;
     assign if_id_inst_i = irom_inst;
     assign if_id_pc_i = pc_pc;
-    assign if_id_have_inst_i = 1'b1;
+
+    reg    if_have_inst;
+    assign if_id_have_inst_i = if_have_inst;
+    always @ (posedge clk_cpu or negedge rst_n_i) begin
+        if (~rst_n_i)   if_have_inst <= 1'b0;
+        else            if_have_inst <= 1'b1;
+    end
     
     // “Î¬Î ID
     // RF
@@ -451,6 +459,7 @@ module cpu(
     // NPC
     assign npc_pc =     id_ex_pc_sel_o  ?   id_ex_rd1_o : 
                                             id_ex_pc_o;
+    assign npc_pc_pc =  pc_pc;
     assign npc_imm =    id_ex_imm_sel_o ?   branch_exto : 
                                             id_ex_ext_o;
     assign npc_op =     id_ex_npc_op_o;
