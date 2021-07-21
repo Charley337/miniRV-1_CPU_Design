@@ -41,6 +41,8 @@ module reg_id_ex(
     input       [2:0]   id_wd_sel,
     input       [4:0]   id_wr,
     input               id_have_inst,
+    input       [4:0]   id_reg1,
+    input       [4:0]   id_reg2,
     
     output  reg [31:0]  ex_rd1,
     output  reg [31:0]  ex_rd2,
@@ -59,7 +61,9 @@ module reg_id_ex(
     output  reg         ex_rf_we,
     output  reg [2:0]   ex_wd_sel,
     output  reg [4:0]   ex_wr,
-    output  reg         ex_have_inst
+    output  reg         ex_have_inst,
+    output  reg [4:0]   ex_reg1,
+    output  reg [4:0]   ex_reg2
     );
     // ex_rd1
     always @ (posedge clk_i or negedge rst_n_i) begin
@@ -168,5 +172,17 @@ module reg_id_ex(
     always @ (posedge clk_i or negedge rst_n_i) begin
         if (~rst_n_i)   ex_wd_sel <= 3'h0;
         else            ex_wd_sel <= id_wd_sel;
+    end
+    
+    // ex_reg1
+    always @ (posedge clk_i or negedge rst_n_i) begin
+        if (~rst_n_i)   ex_reg1 <= 5'h0;
+        else            ex_reg1 <= id_reg1;
+    end
+    
+    // ex_reg2
+    always @ (posedge clk_i or negedge rst_n_i) begin
+        if (~rst_n_i)   ex_reg2 <= 5'h0;
+        else            ex_reg2 <= id_reg2;
     end
 endmodule

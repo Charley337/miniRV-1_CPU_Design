@@ -44,6 +44,27 @@ module cpu(
     // 输出
     wire        stop_have_inst;
     wire        stop_pipline_stop;
+    // FORWARD
+    // 输入
+    wire [4:0]  forward_id_ex_reg1;
+    wire [4:0]  forward_id_ex_reg2;
+    wire [4:0]  forward_rf_rr1;
+    wire [4:0]  forward_rf_rr2;
+    wire [4:0]  forward_ex_mem_rd;
+    wire        forward_ex_mem_rf_we;
+    wire [4:0]  forward_mem_wb_rd;
+    wire        forward_mem_wb_rf_we;
+    wire [31:0] forward_mem_wb_rf_wdata_i;
+    wire [31:0] forward_mem_wb_rf_wdata_o;
+    // 输出
+    wire [31:0] forward_id_ex_rd1_i;
+    wire [31:0] forward_id_ex_rd2_i;
+    wire [31:0] forward_id_ex_rd1_o;
+    wire [31:0] forward_id_ex_rd2_o;
+    wire        forward_rd1_i_sel;
+    wire        forward_rd2_i_sel;
+    wire        forward_rd1_o_sel;
+    wire        forward_rd2_o_sel;
     // 取址 IF
     // PC
     // 输入
@@ -120,6 +141,8 @@ module cpu(
     wire [1:0]  id_ex_wdin_sel_i;
     wire        id_ex_rf_we_i;
     wire [2:0]  id_ex_wd_sel_i;
+    wire [4:0]  id_ex_reg1_i;
+    wire [4:0]  id_ex_reg2_i;
     // 输出
     wire [31:0] id_ex_rd1_o;
     wire [31:0] id_ex_rd2_o;
@@ -139,6 +162,8 @@ module cpu(
     wire [1:0]  id_ex_wdin_sel_o;
     wire        id_ex_rf_we_o;
     wire [2:0]  id_ex_wd_sel_o;
+    wire [4:0]  id_ex_reg1_o;
+    wire [4:0]  id_ex_reg2_o;
     
     // 执行 EX
     // ALU
@@ -204,6 +229,7 @@ module cpu(
     wire        mem_wb_have_inst_i;
     wire [4:0]  mem_wb_wr_i;
     wire [31:0] mem_wb_pc_i;
+    wire [31:0] mem_wb_rf_wdata_i;
     // 输出
     wire [31:0] mem_wb_aluc_o;
     wire [31:0] mem_wb_dramrd_o;
@@ -214,6 +240,7 @@ module cpu(
     wire        mem_wb_have_inst_o;
     wire [4:0]  mem_wb_wr_o;
     wire [31:0] mem_wb_pc_o;
+    wire [31:0] mem_wb_rf_wdata_o;
     
     
     // 开始实例化
@@ -224,6 +251,28 @@ module cpu(
         .inst_i         (stop_inst),
         .have_inst_o    (stop_have_inst),
         .pipline_stop   (stop_pipline_stop)
+    );
+    // 前递
+    forward U_forward_0(
+        .id_ex_reg1         (forward_id_ex_reg1),
+        .id_ex_reg2         (forward_id_ex_reg2),
+        .rf_rr1             (forward_rf_rr1),
+        .rf_rr2             (forward_rf_rr2),
+        .ex_mem_rd          (forward_ex_mem_rd),
+        .ex_mem_rf_we       (forward_ex_mem_rf_we),
+        .mem_wb_rd          (forward_mem_wb_rd),
+        .mem_wb_rf_we       (forward_mem_wb_rf_we),
+        .mem_wb_rf_wdata_i  (forward_mem_wb_rf_wdata_i),
+        .mem_wb_rf_wdata_o  (forward_mem_wb_rf_wdata_o),
+        
+        .id_ex_rd1_i        (forward_id_ex_rd1_i),
+        .id_ex_rd2_i        (forward_id_ex_rd2_i),
+        .id_ex_rd1_o        (forward_id_ex_rd1_o),
+        .id_ex_rd2_o        (forward_id_ex_rd2_o),
+        .rd1_i_sel          (forward_rd1_i_sel),
+        .rd2_i_sel          (forward_rd2_i_sel),
+        .rd1_o_sel          (forward_rd1_o_sel),
+        .rd2_o_sel          (forward_rd2_o_sel)
     );
     // 取址 IF
     // PC
@@ -310,6 +359,8 @@ module cpu(
         .id_wdin_sel        (id_ex_wdin_sel_i),
         .id_rf_we           (id_ex_rf_we_i),
         .id_wd_sel          (id_ex_wd_sel_i),
+        .id_reg1            (id_ex_reg1_i),
+        .id_reg2            (id_ex_reg2_i),
         .ex_rd1             (id_ex_rd1_o),
         .ex_rd2             (id_ex_rd2_o),
         .ex_ext             (id_ex_ext_o),
@@ -327,7 +378,9 @@ module cpu(
         .ex_dram_we         (id_ex_dram_we_o),
         .ex_wdin_sel        (id_ex_wdin_sel_o),
         .ex_rf_we           (id_ex_rf_we_o),
-        .ex_wd_sel          (id_ex_wd_sel_o)
+        .ex_wd_sel          (id_ex_wd_sel_o),
+        .ex_reg1            (id_ex_reg1_o),
+        .ex_reg2            (id_ex_reg2_o)
     );
     
     // 执行 EX
@@ -398,6 +451,7 @@ module cpu(
         .mem_have_inst  (mem_wb_have_inst_i),
         .mem_wr         (mem_wb_wr_i),
         .mem_pc         (mem_wb_pc_i),
+        .mem_rf_wdata   (mem_wb_rf_wdata_i),
         .wb_aluc        (mem_wb_aluc_o),
         .wb_dramrd      (mem_wb_dramrd_o),
         .wb_pc4         (mem_wb_pc4_o),
@@ -406,12 +460,24 @@ module cpu(
         .wb_wd_sel      (mem_wb_wd_sel_o),
         .wb_have_inst   (mem_wb_have_inst_o),
         .wb_wr          (mem_wb_wr_o),
-        .wb_pc          (mem_wb_pc_o)
+        .wb_pc          (mem_wb_pc_o),
+        .wb_rf_wdata    (mem_wb_rf_wdata_o)
     );
     
     // 开始连线
     // STOP
     assign stop_inst = irom_inst;
+    // FORWARD
+    assign forward_id_ex_reg1 =         id_ex_reg1_o;
+    assign forward_id_ex_reg2 =         id_ex_reg2_o;
+    assign forward_rf_rr1 =             if_id_inst_o[19:15];
+    assign forward_rf_rr2 =             if_id_inst_o[24:20];
+    assign forward_ex_mem_rd =          ex_mem_wr_o;
+    assign forward_ex_mem_rf_we =       ex_mem_rf_we_o;
+    assign forward_mem_wb_rd =          mem_wb_wr_o;
+    assign forward_mem_wb_rf_we =       mem_wb_rf_we_o;
+    assign forward_mem_wb_rf_wdata_i =  mem_wb_rf_wdata_i;
+    assign forward_mem_wb_rf_wdata_o =  mem_wb_rf_wdata_o;
     // 取址 IF
     // PC
     assign pc_have_inst = stop_have_inst;
@@ -430,14 +496,8 @@ module cpu(
     assign rf_rr1 = if_id_inst_o[19:15];
     assign rf_rr2 = if_id_inst_o[24:20];
     assign rf_wr =  mem_wb_wr_o;
-    assign rf_wd =  (mem_wb_wd_sel_o == 3'b000) ?   mem_wb_aluc_o : 
-                    (mem_wb_wd_sel_o == 3'b001) ?   mem_wb_dramrd_o : 
-                    (mem_wb_wd_sel_o == 3'b010) ?   {24'h0, mem_wb_dramrd_o[7:0]} : 
-                    (mem_wb_wd_sel_o == 3'b011) ?   {16'h0, mem_wb_dramrd_o[15:0]} : 
-                    (mem_wb_wd_sel_o == 3'b100) ?   mem_wb_pc4_o : 
-                    (mem_wb_wd_sel_o == 3'b101) ?   mem_wb_ext_o : 
-                                                    32'h0;
-    assign rf_we = mem_wb_rf_we_o;
+    assign rf_wd =  mem_wb_rf_wdata_o;
+    assign rf_we =  mem_wb_rf_we_o;
     // SEXT
     assign sext_inst = if_id_inst_o[31:7];
     assign sext_op = ctrl_sext_op;
@@ -446,8 +506,16 @@ module cpu(
     assign ctrl_have_inst = if_id_have_inst_o;
     
     // ID/EX
-    assign id_ex_rd1_i =        rf_rd1;
-    assign id_ex_rd2_i =        rf_rd2;
+    wire [31:0] id_ex_rd1_o_forward;
+    wire [31:0] id_ex_rd2_o_forward;
+    assign id_ex_rd1_o_forward = (forward_rd1_o_sel)    ?   forward_id_ex_rd1_o : 
+                                                            id_ex_rd1_o;
+    assign id_ex_rd2_o_forward = (forward_rd2_o_sel)    ?   forward_id_ex_rd2_o : 
+                                                            id_ex_rd2_o;
+    assign id_ex_rd1_i =        (forward_rd1_i_sel) ?   forward_id_ex_rd1_i : 
+                                                        rf_rd1;
+    assign id_ex_rd2_i =        (forward_rd2_i_sel) ?   forward_id_ex_rd2_i : 
+                                                        rf_rd2;
     assign id_ex_ext_i =        sext_ext;
     assign id_ex_pc_i =         if_id_pc_o;
     assign id_ex_pc4_i =        if_id_pc4_o;
@@ -464,16 +532,18 @@ module cpu(
     assign id_ex_wdin_sel_i =   ctrl_wdin_sel;
     assign id_ex_rf_we_i =      ctrl_rf_we;
     assign id_ex_wd_sel_i =     ctrl_wd_sel;
+    assign id_ex_reg1_i =       if_id_inst_o[19:15];
+    assign id_ex_reg2_i =       if_id_inst_o[24:20];
 
     // 执行 EX
     // ALU
     assign alu_a =  id_ex_alua_sel_o    ?   id_ex_pc_o : 
-                                            id_ex_rd1_o;
+                                            id_ex_rd1_o_forward;
     assign alu_b =  id_ex_alub_sel_o    ?   id_ex_ext_o : 
-                                            id_ex_rd2_o;
+                                            id_ex_rd2_o_forward;
     assign alu_op = id_ex_alu_op_o;
     // NPC
-    assign npc_pc =     id_ex_pc_sel_o  ?   id_ex_rd1_o : 
+    assign npc_pc =     id_ex_pc_sel_o  ?   id_ex_rd1_o_forward : 
                                             id_ex_pc_o;
     assign npc_pc_pc =  pc_pc;
     assign npc_imm =    id_ex_imm_sel_o ?   branch_exto : 
@@ -486,7 +556,7 @@ module cpu(
 
     // EX/MEM
     assign ex_mem_aluc_i =      alu_c;
-    assign ex_mem_rd2_i =       id_ex_rd2_o;
+    assign ex_mem_rd2_i =       id_ex_rd2_o_forward;
     assign ex_mem_pc4_i =       id_ex_pc4_o;
     assign ex_mem_ext_i =       id_ex_ext_o;
     assign ex_mem_dram_we_i =   id_ex_dram_we_o;
@@ -516,6 +586,13 @@ module cpu(
     assign mem_wb_have_inst_i = ex_mem_have_inst_o;
     assign mem_wb_wr_i =        ex_mem_wr_o;
     assign mem_wb_pc_i =        ex_mem_pc_o;
+    assign mem_wb_rf_wdata_i =  (ex_mem_wd_sel_o == 3'b000) ?   ex_mem_aluc_o : 
+                                (ex_mem_wd_sel_o == 3'b001) ?   dram_rdata : 
+                                (ex_mem_wd_sel_o == 3'b010) ?   {24'h0, dram_rdata[7:0]} : 
+                                (ex_mem_wd_sel_o == 3'b011) ?   {16'h0, dram_rdata[15:0]} : 
+                                (ex_mem_wd_sel_o == 3'b100) ?   ex_mem_pc4_o : 
+                                (ex_mem_wd_sel_o == 3'b101) ?   ex_mem_ext_o : 
+                                                                32'h0;
 
 
     // 输出的 debug 信号

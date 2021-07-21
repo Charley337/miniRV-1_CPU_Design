@@ -24,7 +24,7 @@ module irom(
     input       [31:0]  addr_i,
     output      [31:0]  inst_o
     );
-    // IP ºË
+    // IP 
     inst_mem imem(
         .a      (addr_i[17:2]),
         .spo    (inst_o)
