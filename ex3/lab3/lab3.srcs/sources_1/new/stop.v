@@ -28,6 +28,10 @@ module stop(
     output  reg         have_inst_o,
     output  reg         pipline_stop
     );
+    // 反时钟
+    wire clk_cpu_n;
+    assign clk_cpu_n = ~clk_cpu;
+    // opcode
     wire [6:0] opcode;
     assign opcode = inst_i[6:0];
     // 停顿计数器
@@ -40,21 +44,20 @@ module stop(
     assign opcode_inst_b = (opcode == `OPCODE_INST_B);
     assign opcode_jalr = (opcode == `OPCODE_INST_I_JALR);
     
-    reg state;
-    // 状态机 cnt 一动就通知 have_inst_o 动一次
-    always @ (posedge clk_cpu or negedge rst_n_i) begin
-        if (~rst_n_i)                               state <= 1'b0;
-        else if ((opcode_jal || opcode_inst_b || opcode_jalr) && (~state)) begin
-            state <= 1'b1;
+    reg warning;
+    // 提前预警
+    always @ (posedge clk_cpu_n or negedge rst_n_i) begin
+        if (~rst_n_i)                               warning <= 1'b0;
+        else if (opcode_jal || opcode_inst_b || opcode_jalr) begin
+            warning <= 1'b1;
         end
-        else if (have_inst_o) begin
-            
-        end
+        else                                        warning <= 1'b0;
     end
     
     // 控制 have_inst_o 信号
     always @ (posedge clk_cpu or negedge rst_n_i) begin
         if (~rst_n_i)                               have_inst_o <= 1'b0;
+        else if (have_inst_o && warning)            have_inst_o <= 1'b0;
         else if (pipline_stop)                      have_inst_o <= 1'b0;
         else                                        have_inst_o <= 1'b1;
     end
@@ -70,9 +73,7 @@ module stop(
     end
     
     // 控制 pipline_stop
-    wire clk_pipline_stop;
-    assign clk_pipline_stop = ~clk_cpu;
-    always @ (posedge clk_pipline_stop or negedge rst_n_i) begin
+    always @ (posedge clk_cpu_n or negedge rst_n_i) begin
         if (~rst_n_i)                   pipline_stop <= 1'b0;
         else if (stop_cnt != 6'h0)      pipline_stop <= 1'b1;
         else                            pipline_stop <= 1'b0;
