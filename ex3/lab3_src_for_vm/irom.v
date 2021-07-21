@@ -25,7 +25,7 @@ module irom(
     output      [31:0]  inst_o
     );
     // IP ºË
-    inst_mem imem(              // ROM 13 Î»µØÖ·£¬32 Î»¿í
+    inst_mem imem(
         .a      (addr_i[17:2]),
         .spo    (inst_o)
     );

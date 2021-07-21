@@ -38,9 +38,16 @@ module cpu(
     output  [31:0]  debug_reg_x19
     );
     // 所有信号
+    // STOP
+    // 输入
+    wire [31:0] stop_inst;
+    // 输出
+    wire        stop_have_inst;
+    wire        stop_pipline_stop;
     // 取址 IF
     // PC
     // 输入
+    wire        pc_have_inst;
     wire [31:0] pc_din;
     // 输出
     wire [31:0] pc_pc;
@@ -78,6 +85,7 @@ module cpu(
     // CONTROL
     // 输入
     wire [31:0] ctrl_inst;
+    wire        ctrl_have_inst;
     // 输出
     wire [1:0]  ctrl_npc_op;
     wire        ctrl_pc_sel;
@@ -144,6 +152,7 @@ module cpu(
     // NPC
     // 输入
     wire [31:0] npc_pc;
+    wire [31:0] npc_pc_pc;
     wire [31:0] npc_imm;
     wire [1:0]  npc_op;
     // 输出
@@ -208,14 +217,23 @@ module cpu(
     
     
     // 开始实例化
+    // 停顿
+    stop U_stop_0(
+        .clk_cpu        (clk_cpu),
+        .rst_n_i        (rst_n_i),
+        .inst_i         (stop_inst),
+        .have_inst_o    (stop_have_inst),
+        .pipline_stop   (stop_pipline_stop)
+    );
     // 取址 IF
     // PC
     pc U_pc_0(
-        .clk_i      (clk_cpu),
-        .rst_n_i    (rst_n_i),
-        .din_i      (pc_din),
-        .pc_o       (pc_pc),
-        .pc4_o      (pc_pc4)
+        .clk_i          (clk_cpu),
+        .rst_n_i        (rst_n_i),
+        .have_inst_i    (pc_have_inst),
+        .din_i          (pc_din),
+        .pc_o           (pc_pc),
+        .pc4_o          (pc_pc4)
     );
     
     // IF/ID 寄存器
@@ -254,19 +272,20 @@ module cpu(
     );
     // CONTROL
     control U_control_0(
-        .inst_i     (ctrl_inst),
-        .npc_op     (ctrl_npc_op),
-        .pc_sel     (ctrl_pc_sel),
-        .imm_sel    (ctrl_imm_sel),
-        .sext_op    (ctrl_sext_op),
-        .wd_sel     (ctrl_wd_sel),
-        .rf_we      (ctrl_rf_we),
-        .alu_op     (ctrl_alu_op),
-        .alua_sel   (ctrl_alua_sel),
-        .alub_sel   (ctrl_alub_sel),
-        .dram_we    (ctrl_dram_we),
-        .branch_o   (ctrl_branch),
-        .wdin_sel   (ctrl_wdin_sel)
+        .inst_i         (ctrl_inst),
+        .have_inst_i    (ctrl_have_inst),
+        .npc_op         (ctrl_npc_op),
+        .pc_sel         (ctrl_pc_sel),
+        .imm_sel        (ctrl_imm_sel),
+        .sext_op        (ctrl_sext_op),
+        .wd_sel         (ctrl_wd_sel),
+        .rf_we          (ctrl_rf_we),
+        .alu_op         (ctrl_alu_op),
+        .alua_sel       (ctrl_alua_sel),
+        .alub_sel       (ctrl_alub_sel),
+        .dram_we        (ctrl_dram_we),
+        .branch_o       (ctrl_branch),
+        .wdin_sel       (ctrl_wdin_sel)
     );
     
     // ID/EX 寄存器
@@ -317,12 +336,13 @@ module cpu(
         .a_i        (alu_a),
         .b_i        (alu_b),
         .alu_op     (alu_op),
-        .branch_o   (alu_c),
-        .c_o        (alu_branch)
+        .branch_o   (alu_branch),
+        .c_o        (alu_c)
     );
     // NPC
     npc U_npc_0(
         .pc_i       (npc_pc),
+        .pc_pc_i    (npc_pc_pc),
         .imm_i      (npc_imm),
         .npc_op     (npc_op),
         .npc_o      (npc_npc)
@@ -390,8 +410,11 @@ module cpu(
     );
     
     // 开始连线
+    // STOP
+    assign stop_inst = irom_inst;
     // 取址 IF
     // PC
+    assign pc_have_inst = stop_have_inst;
     assign pc_din = npc_npc;
     // IROM
     assign irom_addr = pc_pc;
@@ -400,7 +423,7 @@ module cpu(
     assign if_id_pc4_i = pc_pc4;
     assign if_id_inst_i = irom_inst;
     assign if_id_pc_i = pc_pc;
-    assign if_id_have_inst_i = 1'b1;
+    assign if_id_have_inst_i = stop_have_inst;
     
     // 译码 ID
     // RF
@@ -420,6 +443,7 @@ module cpu(
     assign sext_op = ctrl_sext_op;
     // CONTROL
     assign ctrl_inst = if_id_inst_o;
+    assign ctrl_have_inst = if_id_have_inst_o;
     
     // ID/EX
     assign id_ex_rd1_i =        rf_rd1;
@@ -451,6 +475,7 @@ module cpu(
     // NPC
     assign npc_pc =     id_ex_pc_sel_o  ?   id_ex_rd1_o : 
                                             id_ex_pc_o;
+    assign npc_pc_pc =  pc_pc;
     assign npc_imm =    id_ex_imm_sel_o ?   branch_exto : 
                                             id_ex_ext_o;
     assign npc_op =     id_ex_npc_op_o;
