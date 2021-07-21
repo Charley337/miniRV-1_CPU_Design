@@ -336,8 +336,8 @@ module cpu(
         .a_i        (alu_a),
         .b_i        (alu_b),
         .alu_op     (alu_op),
-        .branch_o   (alu_c),
-        .c_o        (alu_branch)
+        .branch_o   (alu_branch),
+        .c_o        (alu_c)
     );
     // NPC
     npc U_npc_0(
