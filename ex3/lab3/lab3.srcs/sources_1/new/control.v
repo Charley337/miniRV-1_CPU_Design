@@ -23,6 +23,7 @@
 
 module control(
     input       [31:0]  inst_i,
+    input               have_inst_i,
     output      [1:0]   npc_op,
     output              pc_sel,
     output              imm_sel,
@@ -41,7 +42,7 @@ module control(
     wire [2:0] funct3;
     wire [6:0] funct7;
     // 组合逻辑
-    assign opcode = inst_i[6:0];
+    assign opcode = have_inst_i ? inst_i[6:0] : `OPCODE_INST_NOP;
     assign funct3 = inst_i[14:12];
     assign funct7 = inst_i[31:25];
     // 组合逻辑
@@ -106,7 +107,8 @@ module control(
     // rf_we
     wire rf_we_0;
     assign rf_we_0  =   (opcode == `OPCODE_INST_S) || 
-                        (opcode == `OPCODE_INST_B);
+                        (opcode == `OPCODE_INST_B) || 
+                        (opcode == `OPCODE_INST_NOP);
     assign rf_we    =   (rf_we_0)   ?   1'b0 : 
                                         1'b1;
     // alu_op
@@ -205,8 +207,8 @@ module control(
                             (opcode == `OPCODE_INST_U_AUIPC);
     // dram_we
     assign dram_we  =   (opcode == `OPCODE_INST_S);
-    // branch_o
-    assign branch_o =   (opcode == `OPCODE_INST_B);
+    // branch_o     如果 have_inst_i 是 0, 那么 branch_o 输出为 0 
+    assign branch_o =   (opcode == `OPCODE_INST_B) & have_inst_i;
     // wdin_sel
     wire wdin_sel_00;
     wire wdin_sel_01;

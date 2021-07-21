@@ -53,6 +53,8 @@
     
     // file: control.v
     // opcode: 
+    // ø’÷∏¡Ó
+    `define OPCODE_INST_NOP     7'b0000000
     // R:
     `define OPCODE_INST_R   7'b0110011
     // R_funct3
