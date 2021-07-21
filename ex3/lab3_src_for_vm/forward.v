@@ -44,18 +44,18 @@ module forward(
     // 情形 A 
     wire a_rs1;
     wire a_rs2;
-    assign a_rs1 = ex_mem_rf_we && (id_ex_reg1 == ex_mem_rd);
-    assign a_rs2 = ex_mem_rf_we && (id_ex_reg2 == ex_mem_rd);
+    assign a_rs1 = ex_mem_rf_we && (ex_mem_rd != 5'h0) && (id_ex_reg1 == ex_mem_rd);
+    assign a_rs2 = ex_mem_rf_we && (ex_mem_rd != 5'h0) && (id_ex_reg2 == ex_mem_rd);
     // 情形 B 
     wire b_rs1;
     wire b_rs2;
-    assign b_rs1 = mem_wb_rf_we && (id_ex_reg1 == mem_wb_rd);
-    assign b_rs2 = mem_wb_rf_we && (id_ex_reg2 == mem_wb_rd);
+    assign b_rs1 = mem_wb_rf_we && (mem_wb_rd != 5'h0) && (id_ex_reg1 == mem_wb_rd);
+    assign b_rs2 = mem_wb_rf_we && (mem_wb_rd != 5'h0) && (id_ex_reg2 == mem_wb_rd);
     // 情形 C 
     wire c_rs1;
     wire c_rs2;
-    assign c_rs1 = mem_wb_rf_we && (rf_rr1 == mem_wb_rd);
-    assign c_rs2 = mem_wb_rf_we && (rf_rr2 == mem_wb_rd);
+    assign c_rs1 = mem_wb_rf_we && (mem_wb_rd != 5'h0) && (rf_rr1 == mem_wb_rd);
+    assign c_rs2 = mem_wb_rf_we && (mem_wb_rd != 5'h0) && (rf_rr2 == mem_wb_rd);
     // 处理
     assign id_ex_rd1_i = mem_wb_rf_wdata_o;
     assign id_ex_rd2_i = mem_wb_rf_wdata_o;

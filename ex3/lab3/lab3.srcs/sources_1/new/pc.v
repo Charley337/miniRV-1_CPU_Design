@@ -40,7 +40,7 @@ module pc(
     always @ (posedge clk_i or negedge rst_n_i) begin
         if (~rst_n_i)           pc_o <= 32'h0000_0000;
         else if (~state)        pc_o <= 32'h0;
-        else if (~have_inst_i)  pc_o <= pc_o;
+//        else if (~have_inst_i)  pc_o <= pc_o;
         else                    pc_o <= din_i;
     end
 
