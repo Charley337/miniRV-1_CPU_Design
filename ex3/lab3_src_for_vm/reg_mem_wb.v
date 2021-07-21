@@ -23,15 +23,16 @@
 module reg_mem_wb(
     input               clk_i,
     input               rst_n_i,
-    input       [31:0]  mem_aluc,
-    input       [31:0]  mem_dramrd,
-    input       [31:0]  mem_pc4,
-    input       [31:0]  mem_ext,
+    input       [31:0]  mem_aluc,           // 可以删了
+    input       [31:0]  mem_dramrd,         // 可以删了
+    input       [31:0]  mem_pc4,            // 可以删了
+    input       [31:0]  mem_ext,            // 可以删了
     input               mem_rf_we,
-    input       [2:0]   mem_wd_sel,
+    input       [2:0]   mem_wd_sel,         // 可以删了
     input               mem_have_inst,
     input       [4:0]   mem_wr,
     input       [31:0]  mem_pc,
+    input       [31:0]  mem_rf_wdata,
     
     output  reg [31:0]  wb_aluc,
     output  reg [31:0]  wb_dramrd,
@@ -41,7 +42,8 @@ module reg_mem_wb(
     output  reg [2:0]   wb_wd_sel,
     output  reg         wb_have_inst,
     output  reg [4:0]   wb_wr,
-    output  reg [31:0]  wb_pc
+    output  reg [31:0]  wb_pc,
+    output  reg [31:0]  wb_rf_wdata
     );
     // wb_aluc
     always @ (posedge clk_i or negedge rst_n_i) begin
@@ -95,5 +97,11 @@ module reg_mem_wb(
     always @ (posedge clk_i or negedge rst_n_i) begin
         if (~rst_n_i)   wb_pc <= 32'h0;
         else            wb_pc <= mem_pc;
+    end
+    
+    // wb_rf_wdata
+    always @ (posedge clk_i or negedge rst_n_i) begin
+        if (~rst_n_i)   wb_rf_wdata <= 32'h0;
+        else            wb_rf_wdata <= mem_rf_wdata;
     end
 endmodule
