@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="39" Path="C:/Users/Administrator/Desktop/tjx_riscv_2021_07_22/mini-rv-1_-design/ex3/lab3/lab3.xpr">
+<Project Version="7" Minor="39" Path="C:/Users/Administrator/Desktop/tjx_riscv_2021_07_22_night/mini-rv-1_-design/ex3/lab3/lab3.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="9cdb0fe66cae45869a6025a103e610d4"/>
@@ -286,6 +286,12 @@
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
       <Filter Type="Constrs"/>
+      <File Path="$PSRCDIR/constrs_1/new/constraints.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="ConstrsType" Val="XDC"/>
       </Config>
