@@ -27,10 +27,13 @@ module memram(
     input       [31:0]  wdata_i,
     output      [31:0]  rdata_o
     );
-    wire [31:0] addr_tmp = addr_i - 16'h4000;
+    wire [31:0] addr_tmp;
+    wire ram_clk;
+    assign ram_clk = ~clk_i;
+    assign addr_tmp = addr_i - 16'h4000;
     // IP ºË
     dram U_dram_0 (
-        .clk    (clk_i),
+        .clk    (ram_clk),
         .a      (addr_tmp[15:2]),
         .spo    (rdata_o),
         .we     (we),

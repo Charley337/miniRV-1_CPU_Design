@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`include "param.vh"
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -23,6 +24,8 @@
 module top(
     input               clk,
     input               rst,
+    input       [23:0]  sw_data,
+    output  reg [23:0]  lt_data,
     output  reg         led0_en,
     output  reg         led1_en,
     output  reg         led2_en,
@@ -215,7 +218,7 @@ module top(
     assign peripheral_we =      (cpu_dram_addr[31:12] == 20'hFFFFF) ?   cpu_dram_we : 
                                                                         1'b0;
     assign peripheral_wdata =   cpu_dram_wr_data;
-    assign peripheral_sw_data = 24'h0;
+    assign peripheral_sw_data = sw_data;
     // DISPLAY
     assign display_busy =   1'b0;
     assign display_z1 =     cpu_debug_reg_x19[31:24];
@@ -224,6 +227,10 @@ module top(
     assign display_r2 =     cpu_debug_reg_x19[7:0];
 
     // Êä³öÐÅºÅ
+    always @ (*) begin
+        lt_data = {peripheral_lt_high, peripheral_lt_low};
+    end
+    
     always @ (*) begin
         led0_en = display_led0_en;
     end

@@ -27,4 +27,6 @@ module wdata_helper(
     output      [31:0]  wdata_sb_o,
     output      [31:0]  wdata_sh_o
     );
+    assign wdata_sb_o = 32'h0;
+    assign wdata_sh_o = 32'h0;
 endmodule
