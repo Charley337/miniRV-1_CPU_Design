@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Fri Jul 23 00:20:57 2021
+# Process ID: 4060
+# Current directory: C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.runs/prgrom_synth_1
+# Command line: vivado.exe -log prgrom.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source prgrom.tcl
+# Log file: C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.runs/prgrom_synth_1/prgrom.vds
+# Journal file: C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.runs/prgrom_synth_1\vivado.jou
+#-----------------------------------------------------------
+source prgrom.tcl -notrace

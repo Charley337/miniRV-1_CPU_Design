@@ -114,12 +114,13 @@ module top(
     wire [15:0] peripheral_lt_low;
 
     // Ê±ÖÓ²¿¼þ
-    cpuclk U_cpuclk_0(
-        .clk_in1    (clk),
-        .locked     (clk_lock),
-        .clk_out1   (pll_clk)
-    );
-    assign clk_cpu = pll_clk & clk_lock;
+//    cpuclk U_cpuclk_0(
+//        .clk_in1    (clk),
+//        .locked     (clk_lock),
+//        .clk_out1   (pll_clk)
+//    );
+//    assign clk_cpu = pll_clk & clk_lock;
+    assign clk_cpu = clk;
     divider U_divider_0(
         .clk_i      (clk),
         .rst_n_i    (rst_n),
@@ -205,7 +206,8 @@ module top(
     assign rst_n = ~rst;
     // CPU
     assign cpu_irom_inst =      irom_inst;
-    assign cpu_dram_rd_data =   dram_rd_data;
+    assign cpu_dram_rd_data =   (cpu_dram_addr[31:12] == 20'hFFFFF) ?   peripheral_rdata : 
+                                                                        dram_rd_data;
     // IROM
     assign irom_addr = cpu_irom_addr;
     // MEMRAM

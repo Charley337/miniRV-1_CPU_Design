@@ -1,0 +1,795 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Fri Jul 23 01:04:46 2021
+# Process ID: 8964
+# Current directory: C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.runs/synth_1
+# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.runs/synth_1/top.vds
+# Journal file: C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source top.tcl -notrace
+Command: synth_design -top top -part xc7a100tfgg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 2320 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 395.016 ; gain = 101.070
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/top.v:24]
+INFO: [Synth 8-6157] synthesizing module 'divider' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/divider.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'divider' (1#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/divider.v:23]
+INFO: [Synth 8-6157] synthesizing module 'cpu' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/cpu.v:23]
+INFO: [Synth 8-6157] synthesizing module 'stop' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/stop.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'stop' (2#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/stop.v:24]
+INFO: [Synth 8-6157] synthesizing module 'forward' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/forward.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'forward' (3#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/forward.v:23]
+INFO: [Synth 8-6157] synthesizing module 'pc' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/pc.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'pc' (4#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/pc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'reg_if_id' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/reg_if_id.v:23]
+WARNING: [Synth 8-5788] Register id_pc4_reg in module reg_if_id is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/reg_if_id.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'reg_if_id' (5#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/reg_if_id.v:23]
+INFO: [Synth 8-6157] synthesizing module 'rf' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/rf.v:23]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/rf.v:73]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/rf.v:109]
+INFO: [Synth 8-6155] done synthesizing module 'rf' (6#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/rf.v:23]
+INFO: [Synth 8-6157] synthesizing module 'sext' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/sext.v:37]
+INFO: [Synth 8-6157] synthesizing module 'sext_pos' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/sext_pos.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'sext_pos' (7#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/sext_pos.v:24]
+INFO: [Synth 8-6157] synthesizing module 'sext_neg' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/sext_neg.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'sext_neg' (8#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/sext_neg.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'sext' (9#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/sext.v:37]
+INFO: [Synth 8-6157] synthesizing module 'control' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/control.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'control' (10#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/control.v:24]
+INFO: [Synth 8-6157] synthesizing module 'reg_id_ex' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/reg_id_ex.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'reg_id_ex' (11#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/reg_id_ex.v:23]
+INFO: [Synth 8-6157] synthesizing module 'alu' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu.v:24]
+INFO: [Synth 8-6157] synthesizing module 'alu_sub' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_sub.v:23]
+INFO: [Synth 8-6157] synthesizing module 'alu_neg_num' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_neg_num.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'alu_neg_num' (12#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_neg_num.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'alu_sub' (13#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_sub.v:23]
+INFO: [Synth 8-6157] synthesizing module 'alu_sll' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_sll.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'alu_sll' (14#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_sll.v:23]
+INFO: [Synth 8-6157] synthesizing module 'alu_srl' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_srl.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'alu_srl' (15#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_srl.v:23]
+INFO: [Synth 8-6157] synthesizing module 'alu_sra' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_sra.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'alu_sra' (16#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_sra.v:23]
+INFO: [Synth 8-6157] synthesizing module 'alu_slt' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_slt.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'alu_slt' (17#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_slt.v:23]
+INFO: [Synth 8-6157] synthesizing module 'alu_mul' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_mul.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'alu_mul' (18#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu_mul.v:24]
+WARNING: [Synth 8-3848] Net c_mulh in module/entity alu does not have driver. [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu.v:43]
+WARNING: [Synth 8-3848] Net c_mulhu in module/entity alu does not have driver. [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu.v:44]
+WARNING: [Synth 8-3848] Net c_mulhsu in module/entity alu does not have driver. [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu.v:45]
+WARNING: [Synth 8-3848] Net c_div in module/entity alu does not have driver. [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu.v:46]
+WARNING: [Synth 8-3848] Net c_divu in module/entity alu does not have driver. [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu.v:47]
+WARNING: [Synth 8-3848] Net c_rem in module/entity alu does not have driver. [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu.v:48]
+WARNING: [Synth 8-3848] Net c_remu in module/entity alu does not have driver. [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (19#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/alu.v:24]
+INFO: [Synth 8-6157] synthesizing module 'npc' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/npc.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'npc' (20#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/npc.v:24]
+INFO: [Synth 8-6157] synthesizing module 'branch' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/branch.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'branch' (21#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/branch.v:23]
+INFO: [Synth 8-6157] synthesizing module 'reg_ex_mem' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/reg_ex_mem.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'reg_ex_mem' (22#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/reg_ex_mem.v:23]
+INFO: [Synth 8-6157] synthesizing module 'rdata_helper' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/rdata_helper.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'rdata_helper' (23#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/rdata_helper.v:23]
+INFO: [Synth 8-6157] synthesizing module 'wdata_helper' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/wdata_helper.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'wdata_helper' (24#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/wdata_helper.v:24]
+INFO: [Synth 8-6157] synthesizing module 'reg_mem_wb' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/reg_mem_wb.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'reg_mem_wb' (25#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/reg_mem_wb.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'cpu' (26#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/cpu.v:23]
+INFO: [Synth 8-6157] synthesizing module 'irom' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/irom.v:23]
+INFO: [Synth 8-6157] synthesizing module 'prgrom' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.runs/synth_1/.Xil/Vivado-8964-614-05/realtime/prgrom_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'prgrom' (27#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.runs/synth_1/.Xil/Vivado-8964-614-05/realtime/prgrom_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'irom' (28#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/irom.v:23]
+INFO: [Synth 8-6157] synthesizing module 'memram' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/memram.v:23]
+INFO: [Synth 8-6157] synthesizing module 'dram' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.runs/synth_1/.Xil/Vivado-8964-614-05/realtime/dram_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'dram' (29#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.runs/synth_1/.Xil/Vivado-8964-614-05/realtime/dram_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'memram' (30#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/memram.v:23]
+INFO: [Synth 8-6157] synthesizing module 'display' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/display.v:23]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/display.v:109]
+INFO: [Synth 8-6155] done synthesizing module 'display' (31#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/display.v:23]
+INFO: [Synth 8-6157] synthesizing module 'peripheral' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/peripheral.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'peripheral' (32#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/peripheral.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'top' (33#1) [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/top.v:24]
+WARNING: [Synth 8-3331] design peripheral has unconnected port clk_i
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[31]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[30]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[29]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[28]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[27]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[26]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[25]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[24]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[23]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[22]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[21]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[20]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[19]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[18]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[17]
+WARNING: [Synth 8-3331] design memram has unconnected port addr_i[16]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[31]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[30]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[29]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[28]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[27]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[26]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[25]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[24]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[23]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[22]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[21]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[20]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[19]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[18]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[17]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[16]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[1]
+WARNING: [Synth 8-3331] design irom has unconnected port addr_i[0]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[31]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[30]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[29]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[28]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[27]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[26]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[25]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[24]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[23]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[22]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[21]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[20]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[19]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[18]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[17]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[16]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[15]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[14]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[13]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[12]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[11]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[10]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[9]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[8]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[7]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[6]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[5]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[4]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[3]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[2]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[1]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port wdata_i[0]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port add_i[1]
+WARNING: [Synth 8-3331] design wdata_helper has unconnected port add_i[0]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[31]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[30]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[29]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[28]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[27]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[26]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[25]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[24]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[23]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[22]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[21]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[20]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[19]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[18]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[17]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[16]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[15]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[14]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[13]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[12]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[11]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[10]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[9]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[8]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[7]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[6]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[5]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[4]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[3]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[2]
+WARNING: [Synth 8-3331] design alu_mul has unconnected port a_i[1]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 453.211 ; gain = 159.266
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 453.211 ; gain = 159.266
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 453.211 ; gain = 159.266
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tfgg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/ip/prgrom/prgrom/prgrom_in_context.xdc] for cell 'U_irom_0/U_prgrom_0'
+Finished Parsing XDC File [c:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/ip/prgrom/prgrom/prgrom_in_context.xdc] for cell 'U_irom_0/U_prgrom_0'
+Parsing XDC File [c:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/ip/dram/dram/dram_in_context.xdc] for cell 'U_memram_0/U_dram_0'
+Finished Parsing XDC File [c:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/ip/dram/dram/dram_in_context.xdc] for cell 'U_memram_0/U_dram_0'
+Parsing XDC File [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/constrs_1/new/constraints.xdc]
+Finished Parsing XDC File [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/constrs_1/new/constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/constrs_1/new/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 814.676 ; gain = 0.000
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 814.676 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 814.676 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 814.676 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 814.676 ; gain = 520.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tfgg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 814.676 ; gain = 520.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for U_irom_0/U_prgrom_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_memram_0/U_dram_0. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 814.676 ; gain = 520.730
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "clk_disp" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "npc_op0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sext_op5" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+WARNING: [Synth 8-327] inferring latch for variable 'ext_o_reg' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/sext_pos.v:32]
+WARNING: [Synth 8-327] inferring latch for variable 'ext_o_reg' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/sext_neg.v:32]
+WARNING: [Synth 8-327] inferring latch for variable 'lt_high_reg' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/peripheral.v:49]
+WARNING: [Synth 8-327] inferring latch for variable 'lt_low_reg' [C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.srcs/sources_1/new/peripheral.v:54]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 814.676 ; gain = 520.730
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 7     
+	   2 Input     31 Bit       Adders := 5     
+	   2 Input     24 Bit       Adders := 4     
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 3     
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 52    
+	               17 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 6     
+	                3 Bit    Registers := 4     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 35    
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 3     
+	   2 Input     32 Bit        Muxes := 30    
+	   3 Input     32 Bit        Muxes := 1     
+	   5 Input     24 Bit        Muxes := 1     
+	   2 Input     17 Bit        Muxes := 1     
+	   3 Input     16 Bit        Muxes := 2     
+	   2 Input     16 Bit        Muxes := 1     
+	   3 Input     15 Bit        Muxes := 1     
+	   5 Input      7 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 2     
+	  25 Input      5 Bit        Muxes := 1     
+	   8 Input      4 Bit        Muxes := 1     
+	   3 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 4     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   3 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+	  32 Input      1 Bit        Muxes := 32    
+	   8 Input      1 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module top 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module divider 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     17 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module stop 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	                6 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 2     
+Module forward 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 2     
+Module pc 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module reg_if_id 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+Module rf 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 32    
++---Muxes : 
+	  32 Input      1 Bit        Muxes := 32    
+Module sext_pos 
+Detailed RTL Component Info : 
++---Muxes : 
+	   8 Input      1 Bit        Muxes := 1     
+Module sext_neg 
+Detailed RTL Component Info : 
++---Muxes : 
+	   8 Input      1 Bit        Muxes := 1     
+Module sext 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module control 
+Detailed RTL Component Info : 
++---Muxes : 
+	  25 Input      5 Bit        Muxes := 1     
+	   3 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 3     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   3 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+Module reg_id_ex 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 5     
+	                5 Bit    Registers := 4     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 8     
+Module alu_neg_num 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module alu_sub 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+Module alu_sll 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 5     
+Module alu_srl 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 5     
+Module alu_sra 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     31 Bit       Adders := 5     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 5     
+Module alu_slt 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+Module alu 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module npc 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
++---Muxes : 
+	   3 Input     32 Bit        Muxes := 1     
+Module branch 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module reg_ex_mem 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 5     
+	                5 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
+Module rdata_helper 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     24 Bit       Adders := 4     
+	   2 Input     16 Bit       Adders := 2     
++---Muxes : 
+	   5 Input     24 Bit        Muxes := 1     
+	   3 Input     16 Bit        Muxes := 1     
+	   3 Input     15 Bit        Muxes := 1     
+	   5 Input      7 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+Module reg_mem_wb 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 6     
+	                5 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
+Module cpu 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 8     
+Module memram 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     16 Bit       Adders := 1     
+Module display 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 16    
++---Muxes : 
+	   8 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+Module peripheral 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   3 Input     16 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_divider_0/clk_disp" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[0]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[1]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[2]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[3]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[4]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[5]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[6]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[6]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[8]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[9]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[10]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[11]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[12]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[13]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[14]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[15]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[16]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[17]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[18]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[19]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[20]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[21]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[22]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[23]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[24]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[25]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[26]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[27]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[28]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[29]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[30]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_rf_0/x0_reg[31]' (FDCE) to 'U_cpu_0/U_rf_0/x0_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_cpu_0/U_rf_0/\x0_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\U_display_0/led_dp_reg )
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[31]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[30]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[29]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[28]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[27]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[26]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[25]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[24]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[23]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[22]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[21]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[20]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[19]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[18]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[17]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[16]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[15]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[14]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[13]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[12]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[11]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[10]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[9]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_high_reg[8]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[31]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[30]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[29]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[28]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[27]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[26]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[25]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[24]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[23]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[22]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[21]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[20]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[19]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[18]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[17]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_peripheral_0/lt_low_reg[16]) is unused and will be removed from module top.
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_sext_0/U_sext_neg_0/ext_o_reg[0]' (LD) to 'U_cpu_0/U_sext_0/U_sext_pos_0/ext_o_reg[0]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_sext_0/U_sext_neg_0/ext_o_reg[1]' (LD) to 'U_cpu_0/U_sext_0/U_sext_pos_0/ext_o_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_sext_0/U_sext_neg_0/ext_o_reg[2]' (LD) to 'U_cpu_0/U_sext_0/U_sext_pos_0/ext_o_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_sext_0/U_sext_neg_0/ext_o_reg[3]' (LD) to 'U_cpu_0/U_sext_0/U_sext_pos_0/ext_o_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_sext_0/U_sext_neg_0/ext_o_reg[4]' (LD) to 'U_cpu_0/U_sext_0/U_sext_pos_0/ext_o_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_sext_0/U_sext_neg_0/ext_o_reg[5]' (LD) to 'U_cpu_0/U_sext_0/U_sext_pos_0/ext_o_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_sext_0/U_sext_neg_0/ext_o_reg[6]' (LD) to 'U_cpu_0/U_sext_0/U_sext_pos_0/ext_o_reg[6]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_sext_0/U_sext_neg_0/ext_o_reg[7]' (LD) to 'U_cpu_0/U_sext_0/U_sext_pos_0/ext_o_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_sext_0/U_sext_neg_0/ext_o_reg[8]' (LD) to 'U_cpu_0/U_sext_0/U_sext_pos_0/ext_o_reg[8]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_sext_0/U_sext_neg_0/ext_o_reg[9]' (LD) to 'U_cpu_0/U_sext_0/U_sext_pos_0/ext_o_reg[9]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_sext_0/U_sext_neg_0/ext_o_reg[10]' (LD) to 'U_cpu_0/U_sext_0/U_sext_pos_0/ext_o_reg[10]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_sext_0/U_sext_neg_0/ext_o_reg[31]' (LD) to 'U_cpu_0/U_sext_0/U_sext_pos_0/ext_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U_cpu_0/U_reg_id_ex_0/ex_pc_sel_reg' (FDC) to 'U_cpu_0/U_reg_id_ex_0/ex_npc_op_reg[1]'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 814.676 ; gain = 520.730
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 814.676 ; gain = 520.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 814.676 ; gain = 520.730
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 868.980 ; gain = 575.035
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 868.980 ; gain = 575.035
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 868.980 ; gain = 575.035
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 868.980 ; gain = 575.035
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 868.980 ; gain = 575.035
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 868.980 ; gain = 575.035
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 868.980 ; gain = 575.035
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |prgrom        |         1|
+|2     |dram          |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |dram   |     1|
+|2     |prgrom |     1|
+|3     |BUFG   |     2|
+|4     |CARRY4 |    68|
+|5     |LUT1   |    69|
+|6     |LUT2   |   158|
+|7     |LUT3   |   287|
+|8     |LUT4   |   188|
+|9     |LUT5   |   347|
+|10    |LUT6   |   887|
+|11    |MUXF7  |   260|
+|12    |MUXF8  |   128|
+|13    |FDCE   |  1537|
+|14    |FDPE   |    40|
+|15    |LD     |    52|
+|16    |LDC    |    56|
+|17    |IBUF   |    26|
+|18    |OBUF   |    40|
++------+-------+------+
+
+Report Instance Areas: 
++------+-------------------+-----------+------+
+|      |Instance           |Module     |Cells |
++------+-------------------+-----------+------+
+|1     |top                |           |  4209|
+|2     |  U_cpu_0          |cpu        |  3977|
+|3     |    U_alu_0        |alu        |    28|
+|4     |      U_alu_sub_0  |alu_sub    |    28|
+|5     |    U_pc_0         |pc         |   116|
+|6     |    U_reg_ex_mem   |reg_ex_mem |   313|
+|7     |    U_reg_id_ex_0  |reg_id_ex  |   935|
+|8     |    U_reg_if_id_0  |reg_if_id  |   296|
+|9     |    U_reg_mem_wb_0 |reg_mem_wb |   140|
+|10    |    U_rf_0         |rf         |  1907|
+|11    |    U_sext_0       |sext       |    72|
+|12    |      U_sext_neg_0 |sext_neg   |    40|
+|13    |      U_sext_pos_0 |sext_pos   |    32|
+|14    |    U_stop_0       |stop       |    20|
+|15    |  U_display_0      |display    |    29|
+|16    |  U_divider_0      |divider    |    44|
+|17    |  U_irom_0         |irom       |    34|
+|18    |  U_memram_0       |memram     |    32|
+|19    |  U_peripheral_0   |peripheral |    24|
++------+-------------------+-----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 868.980 ; gain = 575.035
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 85 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 868.980 ; gain = 213.570
+Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 868.980 ; gain = 575.035
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 564 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 868.980 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 108 instances were transformed.
+  LD => LDCE: 52 instances
+  LDC => LDCE: 56 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+133 Infos, 152 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 868.980 ; gain = 586.504
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 868.980 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Administrator/Desktop/tjx_riscv_plus_v2_2021_07_23/mini-rv-1_-design/ex3/lab3/lab3.runs/synth_1/top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Jul 23 01:05:19 2021...

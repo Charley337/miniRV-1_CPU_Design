@@ -1,0 +1,47 @@
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 9cdb0fe66cae45869a6025a103e610d4 --incr --debug typical --relax --mt 2 -L dist_mem_gen_v8_0_12 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot top_sim_behav xil_defaultlib.top_sim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.divider
+Compiling module xil_defaultlib.stop
+Compiling module xil_defaultlib.forward
+Compiling module xil_defaultlib.pc
+Compiling module xil_defaultlib.reg_if_id
+Compiling module xil_defaultlib.rf
+Compiling module xil_defaultlib.sext_pos
+Compiling module xil_defaultlib.sext_neg
+Compiling module xil_defaultlib.sext
+Compiling module xil_defaultlib.control
+Compiling module xil_defaultlib.reg_id_ex
+Compiling module xil_defaultlib.alu_neg_num
+Compiling module xil_defaultlib.alu_sub
+Compiling module xil_defaultlib.alu_sll
+Compiling module xil_defaultlib.alu_srl
+Compiling module xil_defaultlib.alu_sra
+Compiling module xil_defaultlib.alu_slt
+Compiling module xil_defaultlib.alu_mul
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.npc
+Compiling module xil_defaultlib.branch
+Compiling module xil_defaultlib.reg_ex_mem
+Compiling module xil_defaultlib.rdata_helper
+Compiling module xil_defaultlib.wdata_helper
+Compiling module xil_defaultlib.reg_mem_wb
+Compiling module xil_defaultlib.cpu
+Compiling module dist_mem_gen_v8_0_12.dist_mem_gen_v8_0_12(C_FAMILY="a...
+Compiling module xil_defaultlib.prgrom
+Compiling module xil_defaultlib.irom
+Compiling module dist_mem_gen_v8_0_12.dist_mem_gen_v8_0_12(C_FAMILY="a...
+Compiling module xil_defaultlib.dram
+Compiling module xil_defaultlib.memram
+Compiling module xil_defaultlib.display
+Compiling module xil_defaultlib.peripheral
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.top_sim
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot top_sim_behav
