@@ -205,7 +205,8 @@ module top(
     assign rst_n = ~rst;
     // CPU
     assign cpu_irom_inst =      irom_inst;
-    assign cpu_dram_rd_data =   dram_rd_data;
+    assign cpu_dram_rd_data =   (cpu_dram_addr[31:12] == 20'hFFFFF) ?   peripheral_rdata : 
+                                                                        dram_rd_data;
     // IROM
     assign irom_addr = cpu_irom_addr;
     // MEMRAM
