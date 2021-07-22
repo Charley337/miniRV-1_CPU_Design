@@ -96,7 +96,12 @@ module alu(
     );
     
     // slt
-    assign c_slt = {31'h0, c_sub[31]};
+    alu_slt U_alu_slt_0(
+        .a_i    (a_i),
+        .b_i    (b_i),
+        .c_sub  (c_sub),
+        .c_o    (c_slt)
+    );
     
     // sltu
     assign c_sltu = (a_i < b_i);
