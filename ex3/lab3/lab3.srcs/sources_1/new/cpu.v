@@ -217,6 +217,21 @@ module cpu(
     wire [31:0] ex_mem_pc_o;
     
     // ∑√¥Ê MEM
+    // RDATA_HELPER
+    //  ‰»Î
+    wire [31:0] rdata_helper_rdata;
+    wire [1:0]  rdata_helper_addr;
+    //  ‰≥ˆ
+    wire [31:0] rdata_helper_wb_lb;
+    wire [31:0] rdata_helper_wb_lh;
+    // WDATA_HELPER
+    //  ‰»Î
+    wire [31:0] wdata_helper_wdata_i;
+    wire [1:0]  wdata_helper_addr;
+    //  ‰≥ˆ
+    wire [31:0] wdata_helper_wdata_sb;
+    wire [31:0] wdata_helper_wdata_sh;
+    
     
     // MEM/WB ºƒ¥Ê∆˜
     //  ‰»Î
@@ -437,6 +452,20 @@ module cpu(
     );
     
     // ∑√¥Ê MEM
+    // RDATA_HELPER
+    rdata_helper U_rdata_helper_0(
+        .rdata_i        (rdata_helper_rdata),
+        .addr_i         (rdata_helper_addr),
+        .wb_lb_o        (rdata_helper_wb_lb),
+        .wb_lh_o        (rdata_helper_wb_lh)
+    );
+    // WDATA_HELPER
+    wdata_helper U_wdata_helper_0(
+        .wdata_i        (wdata_helper_wdata_i),
+        .add_i          (wdata_helper_addr),
+        .wdata_sb_o     (wdata_helper_wdata_sb),
+        .wdata_sh_o     (wdata_helper_wdata_sh)
+    );
     
     // MEM/WB ºƒ¥Ê∆˜
     reg_mem_wb U_reg_mem_wb_0(
@@ -575,6 +604,12 @@ module cpu(
                             (ex_mem_wdin_sel_o == 2'b10)    ?   {16'h0, ex_mem_rd2_o[15:0]} : 
                                                                 32'h0;
     assign dram_we =        ex_mem_dram_we_o;
+    // RDATA_HELPER
+    assign rdata_helper_rdata = dram_rdata;
+    assign rdata_helper_addr =  ex_mem_aluc_o[1:0];
+    // WDATA_HELPER
+    assign wdata_helper_wdata_i =   ex_mem_rd2_o;
+    assign wdata_helper_addr =      ex_mem_aluc_o[1:0];
 
     // MEM/WB
     assign mem_wb_aluc_i =      ex_mem_aluc_o;
@@ -588,8 +623,8 @@ module cpu(
     assign mem_wb_pc_i =        ex_mem_pc_o;
     assign mem_wb_rf_wdata_i =  (ex_mem_wd_sel_o == 3'b000) ?   ex_mem_aluc_o : 
                                 (ex_mem_wd_sel_o == 3'b001) ?   dram_rdata : 
-                                (ex_mem_wd_sel_o == 3'b010) ?   {24'h0, dram_rdata[7:0]} : 
-                                (ex_mem_wd_sel_o == 3'b011) ?   {16'h0, dram_rdata[15:0]} : 
+                                (ex_mem_wd_sel_o == 3'b010) ?   rdata_helper_wb_lb : 
+                                (ex_mem_wd_sel_o == 3'b011) ?   rdata_helper_wb_lh : 
                                 (ex_mem_wd_sel_o == 3'b100) ?   ex_mem_pc4_o : 
                                 (ex_mem_wd_sel_o == 3'b101) ?   ex_mem_ext_o : 
                                                                 32'h0;

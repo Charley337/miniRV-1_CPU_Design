@@ -99,6 +99,16 @@ module top(
     wire display_led_cf;
     wire display_led_cg;
     wire display_led_dp;
+    // 外设 PERIPHERAL
+    // 输入
+    wire [31:0] peripheral_addr;
+    wire        peripheral_we;
+    wire [31:0] peripheral_wdata;
+    wire [23:0] peripheral_sw_data;
+    // 输出
+    wire [31:0] peripheral_rdata;
+    wire [7:0]  peripheral_lt_high;
+    wire [15:0] peripheral_lt_low;
 
     // 时钟部件
     cpuclk U_cpuclk_0(
@@ -173,6 +183,19 @@ module top(
         .led_cg         (display_led_cg),
         .led_dp         (display_led_dp)
     );
+    
+    // 外设 PERIPHERAL
+    peripheral U_peripheral_0(
+        .clk_i          (clk_cpu),
+        .rst_n_i        (rst_n),
+        .addr_i         (peripheral_addr),
+        .we_i           (peripheral_we),
+        .wr_data_i      (peripheral_wdata),
+        .sw_data_i      (peripheral_sw_data),
+        .rd_data_o      (peripheral_rdata),
+        .lt_high_o      (peripheral_lt_high),
+        .lt_low_o       (peripheral_lt_low)
+    );
 
     // 开始连线
     // 复位
@@ -183,9 +206,16 @@ module top(
     // IROM
     assign irom_addr = cpu_irom_addr;
     // MEMRAM
-    assign dram_addr =      cpu_dram_addr;
-    assign dram_wr_data =   cpu_dram_wr_data;
-    assign dram_we =        cpu_dram_we;
+    assign dram_addr =          cpu_dram_addr;
+    assign dram_wr_data =       cpu_dram_wr_data;
+    assign dram_we =            (cpu_dram_addr[31:12] == 20'hFFFFF) ?   1'b0 : 
+                                                                        cpu_dram_we;
+    // 外设 PERIPHERAL
+    assign peripheral_addr =    cpu_dram_addr;
+    assign peripheral_we =      (cpu_dram_addr[31:12] == 20'hFFFFF) ?   cpu_dram_we : 
+                                                                        1'b0;
+    assign peripheral_wdata =   cpu_dram_wr_data;
+    assign peripheral_sw_data = 24'h0;
     // DISPLAY
     assign display_busy =   1'b0;
     assign display_z1 =     cpu_debug_reg_x19[31:24];

@@ -35,7 +35,7 @@ module sext_neg(
         `SEXT_OP_U_INST         :   ext_o <= {inst_i[24:5], 12'h000};
         `SEXT_OP_J_INST         :   ext_o <= {inst_i[24], 11'h7FF, inst_i[12:5], inst_i[13], inst_i[23:14], 1'b0};
         `SEXT_OP_I_INST_SLLI    :   ext_o <= {27'h0, inst_i[17:13]};
-        `SEXT_OP_I_INST_SLTIU   :   ext_o <= {inst_i[24], 20'h00000, inst_i[23:13]};
+        `SEXT_OP_I_INST_SLTIU   :   ext_o <= {inst_i[24], 20'hFFFFF, inst_i[23:13]};
         default;
         endcase
     end
