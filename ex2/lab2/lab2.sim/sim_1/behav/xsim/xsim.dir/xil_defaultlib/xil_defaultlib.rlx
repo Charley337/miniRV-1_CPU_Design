@@ -1,0 +1,8 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+C:/Users/Administrator/Desktop/tjx_riscv_2021_07_10/mini-rv-1_-design/ex2/lab2/lab2.sim/sim_1/behav/xsim/glbl.v,1625912414,verilog,,,,glbl,,,,,,,,
+C:/Users/Administrator/Desktop/tjx_riscv_2021_07_10/mini-rv-1_-design/ex2/lab2/lab2.srcs/sim_1/new/divider_tb.v,1625928282,verilog,,,,divider_tb,,,../../../../lab2.srcs/sources_1/ip/cpuclk;../../../../lab2.srcs/sources_1/new,,,,,
+C:/Users/Administrator/Desktop/tjx_riscv_2021_07_10/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/new/divider.v,1625928381,verilog,,C:/Users/Administrator/Desktop/tjx_riscv_2021_07_10/mini-rv-1_-design/ex2/lab2/lab2.srcs/sim_1/new/divider_tb.v,,divider,,,../../../../lab2.srcs/sources_1/ip/cpuclk;../../../../lab2.srcs/sources_1/new,,,,,
+C:/Users/Administrator/Desktop/tjx_riscv_2021_07_10/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/new/param.vh,1625912414,verilog,,C:/Users/Administrator/Desktop/tjx_riscv_2021_07_10/mini-rv-1_-design/ex2/lab2/lab2.srcs/sources_1/new/divider.v,,,,,../../../../lab2.srcs/sources_1/ip/cpuclk;../../../../lab2.srcs/sources_1/new,,,,,
